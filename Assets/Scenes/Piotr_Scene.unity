@@ -346,9 +346,10 @@ GameObject:
   - component: {fileID: 209940803}
   - component: {fileID: 209940799}
   - component: {fileID: 209940800}
+  - component: {fileID: 209940804}
   - component: {fileID: 209940802}
   - component: {fileID: 209940801}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,6 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 209940803}
   attackPoint: {fileID: 1658248903}
+  BasicAttackCooldown: 0.6
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -532,6 +534,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11400000, guid: 4f7dbcd718cc7c141a4e9532e11363fa, type: 2}
+  slider: {fileID: 1482306723}
+  healthColor:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.066777706, b: 0.8962264, a: 1}
+    key1: {r: 0.45294118, g: 0.04177849, b: 0.5558561, a: 1}
+    key2: {r: 0.8018868, g: 0, b: 0.06850492, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 16384
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  contaminationProcess: {fileID: 1363263198}
 --- !u!95 &209940803
 Animator:
   serializedVersion: 5
@@ -553,6 +586,49 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &209940804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209940794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3918fb7f4475064e865f6139ee3695d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &277454364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 277454365}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &277454365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277454364}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.419, y: -0.26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1473488014}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &683948759
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,8 +1034,8 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.5671005, y: 0.023500443}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.56710815, y: 0.023500443}
   m_SizeDelta: {x: -6.5036, y: -3.4545}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363263198
@@ -1014,6 +1090,7 @@ GameObject:
   - component: {fileID: 1473488011}
   - component: {fileID: 1473488016}
   - component: {fileID: 1473488015}
+  - component: {fileID: 1473488017}
   m_Layer: 7
   m_Name: Dummy
   m_TagString: Untagged
@@ -1034,10 +1111,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08862391, y: -0.018036842}
+  m_Offset: {x: -0.0018882751, y: -0.018036842}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.454, y: 0.5}
     oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -1045,7 +1122,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.90800184, y: 1.8701162}
+  m_Size: {x: 0.8758774, y: 1.8701162}
   m_EdgeRadius: 0
 --- !u!50 &1473488012
 Rigidbody2D:
@@ -1131,7 +1208,8 @@ Transform:
   m_LocalPosition: {x: -9.99, y: 1.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 277454365}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1160,6 +1238,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 11400000, guid: d975905bfb8654f47aa1028ea64a713e, type: 2}
+--- !u!114 &1473488017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473488010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e2cdd20b5735e4796417499f4337fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  attackPoint: {fileID: 277454365}
+  BasicAttackCooldown: 0.5
+  enemyAttackStats: {fileID: 11400000, guid: 8b490089045dd594eb8ef798d0dc0a35, type: 2}
+  player: {fileID: 209940794}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &1482306721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,13 +1338,13 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 1363263198}
-  m_FillRect: {fileID: 0}
+  m_FillRect: {fileID: 1363263197}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

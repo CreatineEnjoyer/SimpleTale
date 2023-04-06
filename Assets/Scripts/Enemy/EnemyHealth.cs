@@ -5,7 +5,8 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
     private HealthScriptable enemyHealth;
-    public event Action deathEvent;
+
+    public event Action DeathEvent;
 
     private int health;
 
@@ -22,6 +23,6 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int playerStrength)
     {
         health -= playerStrength;
-        if(health <= 0) deathEvent?.Invoke();
+        if(health <= 0) DeathEvent?.Invoke();
     }
 }
