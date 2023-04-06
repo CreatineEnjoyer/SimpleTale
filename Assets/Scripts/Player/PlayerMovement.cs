@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         movement = move.ReadValue<Vector2>();
         Looking(move);
-        rb.velocity += movement * speed * Time.fixedDeltaTime;
+        rb.velocity += speed * Time.fixedDeltaTime * movement;
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
     }
 
