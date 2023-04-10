@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-using System.Collections;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, ITakingDamage
 {
     [SerializeField] private HealthScriptable playerHealth;
     [SerializeField] private Slider slider;
@@ -48,9 +47,9 @@ public class PlayerHealth : MonoBehaviour
         contaminationProcess.color = healthColor.Evaluate(slider.normalizedValue);
     }
 
-    public void TakeDamage(int enemyStrength)
+    public void TakeDamage(int strength)
     {
-        health -= enemyStrength;
+        health -= strength;
         UpdateHealth();
         if (health <= 0) DeathEvent?.Invoke();
     }

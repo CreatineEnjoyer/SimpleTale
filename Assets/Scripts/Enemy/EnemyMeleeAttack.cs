@@ -35,26 +35,17 @@ public class EnemyMeleeAttack : MonoBehaviour
     private void AttackDirection()
     {
         Vector3 flipPosition;
+        flipPosition = attackPoint.localPosition;
 
         if (Distance())
         {
             sprite.flipX = false;
-            if (attackPoint.localPosition.x < 0f)
-            {
-                flipPosition = attackPoint.localPosition;
-                flipPosition.x *= -1;
-                attackPoint.localPosition = flipPosition;
-            }
+            FlippingPosition(attackPoint, flipPosition);
         }
         else if (!Distance())
         {
             sprite.flipX = true;
-            if (attackPoint.localPosition.x > 0f)
-            {
-                flipPosition = attackPoint.localPosition;
-                flipPosition.x *= -1;
-                attackPoint.localPosition = flipPosition;
-            }
+            FlippingPosition(attackPoint, flipPosition);
         }
     }
 
@@ -78,7 +69,7 @@ public class EnemyMeleeAttack : MonoBehaviour
             Collider2D[] playerInRange = Physics2D.OverlapCircleAll(attackPoint.position, range, playerLayer);
             foreach (Collider2D collider in playerInRange)
             {
-                collider.gameObject.GetComponent<PlayerHealth>().TakeDamage(strength);
+                collider.gameObject.GetComponent<ITakingDamage>().TakeDamage(strength);
             }   
         }
     }
@@ -87,5 +78,14 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(BasicAttackCooldown);
         canAttack = true;
+    }
+
+    private void FlippingPosition(Transform attackPoint, Vector3 flipPosition)
+    {
+        if (attackPoint.localPosition.x != 0f)
+        {
+            flipPosition.x *= -1;
+            attackPoint.localPosition = flipPosition;
+        }
     }
 }

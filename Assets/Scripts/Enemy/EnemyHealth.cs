@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour, ITakingDamage
 {
     [SerializeField]
     private HealthScriptable enemyHealth;
@@ -15,14 +15,9 @@ public class EnemyHealth : MonoBehaviour
         health = enemyHealth.Health;
     }
 
-    public int GetHealth()
+    public void TakeDamage(int strength)
     {
-        return health;
-    }
-
-    public void TakeDamage(int playerStrength)
-    {
-        health -= playerStrength;
+        health -= strength;
         if(health <= 0) DeathEvent?.Invoke();
     }
 }

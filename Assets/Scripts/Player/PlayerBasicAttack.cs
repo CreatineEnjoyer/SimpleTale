@@ -31,26 +31,17 @@ public class PlayerBasicAttack : MonoBehaviour
     private void AttackDirection()
     {
         Vector3 flipPosition;
+        flipPosition = attackPoint.localPosition;
 
         if (playerAction.Player.Attack.ReadValue<Vector2>().x > 0f)
         {
             sprite.flipX = false;
-            if (attackPoint.localPosition.x < 0f)
-            {
-                flipPosition = attackPoint.localPosition;
-                flipPosition.x *= -1;
-                attackPoint.localPosition = flipPosition;
-            }
+            FlippingPosition(attackPoint, flipPosition);
         }
         else if (playerAction.Player.Attack.ReadValue<Vector2>().x < 0f)
         {
             sprite.flipX = true;
-            if (attackPoint.localPosition.x > 0f)
-            {
-                flipPosition = attackPoint.localPosition;
-                flipPosition.x *= -1;
-                attackPoint.localPosition = flipPosition;
-            }
+            FlippingPosition(attackPoint, flipPosition);
         }
     }
 
@@ -68,7 +59,7 @@ public class PlayerBasicAttack : MonoBehaviour
             Collider2D[] enemyInRange = Physics2D.OverlapCircleAll(attackPoint.position, range, enemyLayer);
             foreach(Collider2D enemy in enemyInRange)
             {
-                enemy.gameObject.GetComponent<EnemyHealth>().TakeDamage(strength);
+                enemy.gameObject.GetComponent<ITakingDamage>().TakeDamage(strength);
             }
         }
     }
@@ -89,5 +80,14 @@ public class PlayerBasicAttack : MonoBehaviour
     {
         playerAction.Player.Attack.started -= BasicAttack;
         playerAction.Player.Disable();
+    }
+
+    private void FlippingPosition(Transform attackPoint, Vector3 flipPosition)
+    {
+        if (attackPoint.localPosition.x != 0f)
+        {
+            flipPosition.x *= -1;
+            attackPoint.localPosition = flipPosition;
+        }
     }
 }
