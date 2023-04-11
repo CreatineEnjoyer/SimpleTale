@@ -62,6 +62,15 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""654c608b-0b11-4b85-b76f-c2f7777a0e89"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83f42fc9-36fa-4387-a38d-9f082b7fd816"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -741,6 +761,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -818,6 +839,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Crouch;
+    private readonly InputAction m_Player_PauseMenu;
     public struct PlayerActions
     {
         private @PlayerControlActions m_Wrapper;
@@ -826,6 +848,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -847,6 +870,9 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
+            @PauseMenu.started += instance.OnPauseMenu;
+            @PauseMenu.performed += instance.OnPauseMenu;
+            @PauseMenu.canceled += instance.OnPauseMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -863,6 +889,9 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
+            @PauseMenu.started -= instance.OnPauseMenu;
+            @PauseMenu.performed -= instance.OnPauseMenu;
+            @PauseMenu.canceled -= instance.OnPauseMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1049,6 +1078,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
