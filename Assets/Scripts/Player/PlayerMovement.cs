@@ -27,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Moving()
     {
+        if (move.ReadValue<Vector2>().x != 0.0f)
+            gameObject.GetComponent<IMoveAnim>().GetMovementAnimation();
+        else
+            gameObject.GetComponent<IMoveAnim>().StopMovementAnimation();
+
         movement = move.ReadValue<Vector2>();
         Looking(move);
         rb.velocity += speed * Time.fixedDeltaTime * movement;

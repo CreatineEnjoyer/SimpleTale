@@ -345,10 +345,12 @@ GameObject:
   - component: {fileID: 209940797}
   - component: {fileID: 209940803}
   - component: {fileID: 209940799}
+  - component: {fileID: 209940805}
   - component: {fileID: 209940800}
   - component: {fileID: 209940804}
   - component: {fileID: 209940802}
   - component: {fileID: 209940801}
+  - component: {fileID: 209940806}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -598,6 +600,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3918fb7f4475064e865f6139ee3695d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &209940805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209940794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6597d85f1203fef4389b3787ef6299cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 209940803}
+--- !u!114 &209940806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209940794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6e295d422d8fe43af53a54fd214a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 209940803}
 --- !u!1 &277454364
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1310,7 +1338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129.01093, y: -24.434784}
+  m_AnchoredPosition: {x: 129.01093, y: -24.434814}
   m_SizeDelta: {x: 241.9781, y: 26.1304}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482306723

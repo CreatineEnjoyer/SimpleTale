@@ -51,7 +51,7 @@ public class PlayerBasicAttack : MonoBehaviour
 
         if (canAttack)
         {
-            animator.SetTrigger("Attacking");
+            gameObject.GetComponent<IAttackAnim>().BasicAttackAnim();
 
             canAttack = false;
             StartCoroutine(AttackCooldown());
