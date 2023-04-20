@@ -1,12 +1,12 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMeleeAttack : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float BasicAttackCooldown;
-    [SerializeField] private AttackScriptable enemyAttackStats;
+    [SerializeField] private StatsScriptable enemyStats;
     [SerializeField] private GameObject player;
     [SerializeField] private LayerMask playerLayer;
     
@@ -14,12 +14,13 @@ public class EnemyMeleeAttack : MonoBehaviour
     private float range;
     private bool canAttack = true;
     private SpriteRenderer sprite;
-
+    private IAttackAnim attackAnimation;
 
     private void Start()
     {
-        strength = enemyAttackStats.Strength;
-        range = enemyAttackStats.Range;
+        strength = enemyStats.Strength;
+        range = enemyStats.AttackRange;
+        attackAnimation = GetComponent<IAttackAnim>();
     }
 
     private void Awake()
@@ -40,12 +41,14 @@ public class EnemyMeleeAttack : MonoBehaviour
         if (Distance())
         {
             sprite.flipX = false;
-            FlippingPosition(attackPoint, flipPosition);
+            if (attackPoint.localPosition.x < 0f)
+                FlippingPosition(attackPoint, flipPosition);
         }
         else if (!Distance())
         {
             sprite.flipX = true;
-            FlippingPosition(attackPoint, flipPosition);
+            if (attackPoint.localPosition.x > 0f)
+                FlippingPosition(attackPoint, flipPosition);
         }
     }
 
@@ -58,18 +61,17 @@ public class EnemyMeleeAttack : MonoBehaviour
     private void BasicAttack()
     {
         AttackDirection();
-        
+
         if (canAttack)
         {
-            //animator.SetTrigger("Attacking");
-
             canAttack = false;
             StartCoroutine(AttackCooldown());
 
             Collider2D[] playerInRange = Physics2D.OverlapCircleAll(attackPoint.position, range, playerLayer);
             foreach (Collider2D collider in playerInRange)
             {
-                collider.gameObject.GetComponent<ITakingDamage>().TakeDamage(strength);
+                attackAnimation.BasicAttackAnim();
+                collider.gameObject.GetComponent<ITakeDamage>().TakeDamage(strength);
             }   
         }
     }
@@ -82,10 +84,13 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     private void FlippingPosition(Transform attackPoint, Vector3 flipPosition)
     {
-        if (attackPoint.localPosition.x != 0f)
-        {
-            flipPosition.x *= -1;
-            attackPoint.localPosition = flipPosition;
-        }
+        flipPosition.x *= -1;
+        attackPoint.localPosition = flipPosition;
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireSphere(attackPoint.position, range);
+    //}
 }

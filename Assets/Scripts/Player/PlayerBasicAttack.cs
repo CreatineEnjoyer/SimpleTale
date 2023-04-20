@@ -4,24 +4,24 @@ using UnityEngine.InputSystem;
 
 public class PlayerBasicAttack : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float BasicAttackCooldown;
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private AttackScriptable playerAttackStats;
     
-    private int strength;
-    private float range;
+    [SerializeField] private int strength;
+    [SerializeField] private float range;
+
     private bool canAttack = true;
     private PlayerControlActions playerAction;
     private SpriteRenderer sprite;
-    
+    private IAttackAnim attackAnimation;
+
 
     private void Start()
     {
-        strength = playerAttackStats.Strength;
-        range = playerAttackStats.Range;
+        attackAnimation = GetComponent<IAttackAnim>();
     }
+
     private void Awake()
     {
         playerAction = new PlayerControlActions();
@@ -36,12 +36,14 @@ public class PlayerBasicAttack : MonoBehaviour
         if (playerAction.Player.Attack.ReadValue<Vector2>().x > 0f)
         {
             sprite.flipX = false;
-            FlippingPosition(attackPoint, flipPosition);
+            if(attackPoint.localPosition.x < 0f)
+                FlippingPosition(attackPoint, flipPosition);
         }
         else if (playerAction.Player.Attack.ReadValue<Vector2>().x < 0f)
         {
             sprite.flipX = true;
-            FlippingPosition(attackPoint, flipPosition);
+            if(attackPoint.localPosition.x > 0f)
+                FlippingPosition(attackPoint, flipPosition);
         }
     }
 
@@ -51,7 +53,7 @@ public class PlayerBasicAttack : MonoBehaviour
 
         if (canAttack)
         {
-            gameObject.GetComponent<IAttackAnim>().BasicAttackAnim();
+            attackAnimation.BasicAttackAnim();
 
             canAttack = false;
             StartCoroutine(AttackCooldown());
@@ -59,9 +61,16 @@ public class PlayerBasicAttack : MonoBehaviour
             Collider2D[] enemyInRange = Physics2D.OverlapCircleAll(attackPoint.position, range, enemyLayer);
             foreach(Collider2D enemy in enemyInRange)
             {
-                enemy.gameObject.GetComponent<ITakingDamage>().TakeDamage(strength);
+                if(enemy.GetType() == typeof(CapsuleCollider2D))
+                    enemy.gameObject.GetComponent<ITakeDamage>().TakeDamage(strength); 
             }
         }
+    }
+
+    private void FlippingPosition(Transform attackPoint, Vector3 flipPosition)
+    {
+        flipPosition.x *= -1;
+        attackPoint.localPosition = flipPosition;
     }
 
     IEnumerator AttackCooldown()
@@ -82,12 +91,9 @@ public class PlayerBasicAttack : MonoBehaviour
         playerAction.Player.Disable();
     }
 
-    private void FlippingPosition(Transform attackPoint, Vector3 flipPosition)
-    {
-        if (attackPoint.localPosition.x != 0f)
-        {
-            flipPosition.x *= -1;
-            attackPoint.localPosition = flipPosition;
-        }
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireSphere(attackPoint.position, range);
+    //}
 }

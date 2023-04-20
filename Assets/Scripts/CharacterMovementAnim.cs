@@ -1,15 +1,15 @@
 using UnityEngine;
 
-public class PlayerMovementAnim : MonoBehaviour, IMoveAnim
+public class CharacterMovementAnim : MonoBehaviour, IMoveAnim
 {
     [SerializeField] Animator animator;
 
-    public void GetMovementAnimation()
+    void IMoveAnim.GetMovementAnimation()
     {
         animator.SetBool("Walking", true);
     }
 
-    public void StopMovementAnimation()
+    void IMoveAnim.StopMovementAnimation()
     {
         animator.SetBool("Walking", false);
     }

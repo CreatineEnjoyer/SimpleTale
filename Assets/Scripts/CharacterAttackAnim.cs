@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PlayerAttackAnim : MonoBehaviour, IAttackAnim
+public class CharacterAttackAnim : MonoBehaviour, IAttackAnim
 {
     [SerializeField] private Animator animator;
 
-    public void BasicAttackAnim()
+    void IAttackAnim.BasicAttackAnim()
     {
         animator.SetTrigger("Attacking");
     }

@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class PlayerDeath : MonoBehaviour
+public class CharacterDeath : MonoBehaviour
 {
-    private PlayerHealth health;
+    private ITakeDamage health;
 
     void Start()
     {
-        health = GetComponent<PlayerHealth>();
+        health = GetComponent<ITakeDamage>();
         health.DeathEvent += Die;
     }
 
