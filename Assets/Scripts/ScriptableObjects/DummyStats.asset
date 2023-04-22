@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2e9fab23bcc0a429a4c02466e45ff1, type: 3}
-  m_Name: PlayerAttack
+  m_Script: {fileID: 11500000, guid: 95fa652b0f0093843a017fa260ba1469, type: 3}
+  m_Name: DummyStats
   m_EditorClassIdentifier: 
-  strength: 20
-  range: 1.4
+  detectionRange: 15
+  movementSpeed: 2
+  strength: 10
+  attackRange: 1
+  health: 80

@@ -1,54 +1,118 @@
-using JetBrains.Annotations;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.InputSystem;
 
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] private DetectionRangeScriptable enemyDetectionStats;
-    [SerializeField] private AttackScriptable enemyAttackStats;
+    [SerializeField] private StatsScriptable enemyStats;
+    [SerializeField] private Vector3[] patrollingPoints;
 
+    private IMoveAnim movementAnimation;
+    private DetectingPlayer detectingDistanceToPlayer;
     private SpriteRenderer sprite;
-    float distanceToPlayer = 0f;
+    private float distanceToPlayer = 100f;
+    private int positionPatrolNumber;
+    public bool canMove;
+
+    private void Start()
+    {
+        canMove = true;
+        movementAnimation = GetComponent<IMoveAnim>();
+        detectingDistanceToPlayer = GetComponent<DetectingPlayer>();
+        detectingDistanceToPlayer.DetectedPlayerEvent += StartMoving;
+        detectingDistanceToPlayer.DetectedNotPlayerEvent += ResetDistance;
+        StartCoroutine(PatrollingArea());
+    }
 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
+    private IEnumerator PatrollingArea()
     {
-        distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        if (distanceToPlayer < enemyDetectionStats.DetectionRange && distanceToPlayer > enemyAttackStats.Range)
+        while (distanceToPlayer >= enemyStats.DetectionRange)
         {
-            StartCoroutine(MoveTowardsPlayer());
+            movementAnimation.GetMovementAnimation();
+            transform.position = Vector2.MoveTowards(transform.position, patrollingPoints[positionPatrolNumber], enemyStats.MovementSpeed * Time.deltaTime);
+            if(transform.position == patrollingPoints[positionPatrolNumber])
+            {
+                if (positionPatrolNumber == patrollingPoints.Length - 1)
+                    positionPatrolNumber = 0;
+                else
+                    positionPatrolNumber++;
+            }
+            yield return null;
         }
     }
 
     private IEnumerator MoveTowardsPlayer()
     {
-        Vector2 destination = Vector2.MoveTowards(transform.position, player.transform.position, enemyDetectionStats.MovementSpeed * Time.deltaTime);
-        destination.y = transform.position.y;
-        transform.position = destination;
-
-        MovingDirection(player);
-        yield return null;
+        while (distanceToPlayer >= enemyStats.AttackRange && distanceToPlayer <= enemyStats.DetectionRange)
+        {
+            movementAnimation.GetMovementAnimation();
+            Vector2 destination = Vector2.MoveTowards(transform.position, player.transform.position, enemyStats.MovementSpeed * Time.deltaTime);
+            destination.y = transform.position.y;
+            transform.position = destination;
+            MovingDirection(player);
+            yield return null;
+        }
     }
 
-    
     private void MovingDirection(GameObject player)
     {
-        if (player.transform.position.x < 0f)
+        if (player.transform.position.x - transform.position.x < 0)
         {
             sprite.flipX = true;
         }
-        else if (player.transform.position.x > 0f)
+        else if (player.transform.position.x - transform.position.x > 0f)
         {
             sprite.flipX = false;
         }
     }
-    
+
+    private void StartMoving()
+    {
+        distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        StopCoroutine(PatrollingArea());
+        StartCoroutine(MoveTowardsPlayer());
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        movementAnimation.StopMovementAnimation();
+        if (collision.gameObject.layer == 3)
+        {
+            StopAllCoroutines();
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        movementAnimation.GetMovementAnimation();
+        if (collision.gameObject.layer == 3 && canMove)
+        {
+            if(gameObject.activeSelf)
+                Invoke(nameof(WaitAfterMoving), 0.1f);
+        }
+    }
+
+    private void WaitAfterMoving()
+    {
+        StartCoroutine(MoveTowardsPlayer());
+    }
+
+    private void ResetDistance()
+    {
+        movementAnimation.StopMovementAnimation();
+        distanceToPlayer = 100f;
+        StopCoroutine(MoveTowardsPlayer());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(MoveTowardsPlayer());
+        detectingDistanceToPlayer.DetectedPlayerEvent -= StartMoving;
+        detectingDistanceToPlayer.DetectedNotPlayerEvent -= ResetDistance;
+    }
 }

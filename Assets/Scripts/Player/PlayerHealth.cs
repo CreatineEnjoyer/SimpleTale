@@ -2,20 +2,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class PlayerHealth : MonoBehaviour, ITakingDamage
+public class PlayerHealth : MonoBehaviour, ITakeDamage
 {
-    [SerializeField] private HealthScriptable playerHealth;
     [SerializeField] private Slider slider;
     [SerializeField] private Gradient healthColor;
     [SerializeField] private Image contaminationProcess;
+    [SerializeField] private int health;
 
-    private int health;
     public event Action DeathEvent;
     private float temp = 0f;
 
     private void Start()
     {
-        health = playerHealth.Health;
         slider.value = health;
         contaminationProcess.color = healthColor.Evaluate(1f);
     }
@@ -43,11 +41,12 @@ public class PlayerHealth : MonoBehaviour, ITakingDamage
 
     private void UpdateHealth()
     {
+
         slider.value = health;
         contaminationProcess.color = healthColor.Evaluate(slider.normalizedValue);
     }
 
-    public void TakeDamage(int strength)
+    void ITakeDamage.TakeDamage(int strength)
     {
         health -= strength;
         UpdateHealth();

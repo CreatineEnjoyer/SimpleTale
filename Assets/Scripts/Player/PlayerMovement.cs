@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private Vector2 movement = Vector2.zero;
     private Rigidbody2D rb;
+    private IMoveAnim movementAnimation;
+
+    private void Start()
+    {
+        movementAnimation = GetComponent<IMoveAnim>();
+    }
 
     private void Awake()
     {
@@ -22,11 +28,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Moving();
+        Moving(movementAnimation);
     }
 
-    private void Moving()
+    private void Moving(IMoveAnim movementAnimation)
     {
+        if (move.ReadValue<Vector2>().x != 0.0f)
+            movementAnimation.GetMovementAnimation();
+        else
+            movementAnimation.StopMovementAnimation();
+
         movement = move.ReadValue<Vector2>();
         Looking(move);
         rb.velocity += speed * Time.fixedDeltaTime * movement;
