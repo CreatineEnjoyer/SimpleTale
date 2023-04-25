@@ -15,7 +15,7 @@ public class PlayerPickupMoney : MonoBehaviour
         //money = playerMoney.Money;
     }
 
-    private void OnColisionEnter2D(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     { 
         if (collision.gameObject.CompareTag("Coin"))
             {
