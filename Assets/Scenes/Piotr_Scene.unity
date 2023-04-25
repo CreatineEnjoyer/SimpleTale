@@ -1048,8 +1048,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02202797, y: 0}
-  m_Size: {x: 0.8758774, y: 1.870116}
+  m_Offset: {x: -0.0004310608, y: -0.006679416}
+  m_Size: {x: 0.8758774, y: 1.901066}
   m_Direction: 0
 --- !u!1 &1251386548
 GameObject:
@@ -1702,8 +1702,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02202797, y: 0}
-  m_Size: {x: 0.8758774, y: 1.870116}
+  m_Offset: {x: -0.0004310608, y: -0.0066794157}
+  m_Size: {x: 0.8758774, y: 1.9010656}
   m_Direction: 0
 --- !u!1 &1482306721
 GameObject:
@@ -1840,6 +1840,7 @@ GameObject:
   - component: {fileID: 1847681647}
   - component: {fileID: 1847681646}
   - component: {fileID: 1847681645}
+  - component: {fileID: 1847681648}
   m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
@@ -5410,7 +5411,7 @@ CompositeCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -5781,3 +5782,22 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!251 &1847681648
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847681641}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 0
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
