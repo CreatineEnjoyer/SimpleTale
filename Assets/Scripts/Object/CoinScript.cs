@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField]
+    private float minSpeed = 3f;
+    [SerializeField]
+    private float maxSpeed = 5f;
+
+    private Rigidbody2D rb;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        Vector2 launchCoinDirection = Random.insideUnitCircle.normalized;
+        float launchCoinSpeed = Random.Range(minSpeed, maxSpeed);
+        rb.velocity = launchCoinDirection * launchCoinSpeed;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

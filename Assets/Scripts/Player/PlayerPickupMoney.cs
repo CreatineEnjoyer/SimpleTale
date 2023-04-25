@@ -4,28 +4,25 @@ using System;
 
 public class PlayerPickupMoney : MonoBehaviour
 {
-    [SerializeField] private MoneyScriptable playerMoney;
+    //[SerializeField] private MoneyScriptable playerMoney;
 
-
+    [SerializeField]
     private int money;
 
 
     void Start()
     {
-        money = playerMoney.Money;
+        //money = playerMoney.Money;
     }
 
-    void OnCollisionEnter2D(Collision collision)
+    private void OnColisionEnter2D(Collision collision)
     { 
-        //if (collision.CompareTag("Coin")
-            //{
-                //money++;
-                //Destroy(collision.gameObject);
-            //}
+        if (collision.gameObject.CompareTag("Coin"))
+            {
+                money++;
+                Destroy(collision.gameObject);
+            }
     }
 
-    void Update()
-    {
-        
-    }
+
 }
