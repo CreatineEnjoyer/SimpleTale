@@ -54,17 +54,16 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     private bool Distance()
     {
-        if (player.transform.position.x > attackPoint.position.x) return true;
+        if (player.transform.position.x - transform.position.x > 0f) return true;
         else return false;
     }
 
     private void BasicAttack()
     {
-        AttackDirection();
-
         if (canAttack)
         {
             canAttack = false;
+            AttackDirection();
             StartCoroutine(AttackCooldown());
 
             Collider2D[] playerInRange = Physics2D.OverlapCircleAll(attackPoint.position, range, playerLayer);

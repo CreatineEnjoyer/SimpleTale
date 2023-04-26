@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -9,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
 
     private IMoveAnim movementAnimation;
     private DetectingPlayer detectingDistanceToPlayer;
-    private SpriteRenderer sprite;
+    
     private float distanceToPlayer = 100f;
     private int positionPatrolNumber;
     public bool canMove;
@@ -24,16 +25,11 @@ public class EnemyMovement : MonoBehaviour
         StartCoroutine(PatrollingArea());
     }
 
-    private void Awake()
-    {
-        sprite = GetComponent<SpriteRenderer>();
-    }
-
     private IEnumerator PatrollingArea()
     {
+        movementAnimation.GetMovementAnimation();
         while (distanceToPlayer >= enemyStats.DetectionRange)
         {
-            movementAnimation.GetMovementAnimation();
             transform.position = Vector2.MoveTowards(transform.position, patrollingPoints[positionPatrolNumber], enemyStats.MovementSpeed * Time.deltaTime);
             if(transform.position == patrollingPoints[positionPatrolNumber])
             {
@@ -48,26 +44,13 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator MoveTowardsPlayer()
     {
+        movementAnimation.GetMovementAnimation();
         while (distanceToPlayer >= enemyStats.AttackRange && distanceToPlayer <= enemyStats.DetectionRange)
         {
-            movementAnimation.GetMovementAnimation();
             Vector2 destination = Vector2.MoveTowards(transform.position, player.transform.position, enemyStats.MovementSpeed * Time.deltaTime);
             destination.y = transform.position.y;
             transform.position = destination;
-            MovingDirection(player);
             yield return null;
-        }
-    }
-
-    private void MovingDirection(GameObject player)
-    {
-        if (player.transform.position.x - transform.position.x < 0)
-        {
-            sprite.flipX = true;
-        }
-        else if (player.transform.position.x - transform.position.x > 0f)
-        {
-            sprite.flipX = false;
         }
     }
 
@@ -80,26 +63,25 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        movementAnimation.StopMovementAnimation();
         if (collision.gameObject.layer == 3)
         {
             StopAllCoroutines();
+            movementAnimation.StopMovementAnimation();
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
-    {
-        movementAnimation.GetMovementAnimation();
+    { 
         if (collision.gameObject.layer == 3 && canMove)
         {
-            if(gameObject.activeSelf)
-                Invoke(nameof(WaitAfterMoving), 0.1f);
+            Invoke(nameof(WaitAfterMoving), 0.15f);
         }
     }
 
     private void WaitAfterMoving()
     {
-        StartCoroutine(MoveTowardsPlayer());
+        if (gameObject.activeSelf)
+            StartCoroutine(MoveTowardsPlayer());
     }
 
     private void ResetDistance()

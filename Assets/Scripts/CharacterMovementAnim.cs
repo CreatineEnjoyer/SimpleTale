@@ -6,7 +6,10 @@ public class CharacterMovementAnim : MonoBehaviour, IMoveAnim
 
     void IMoveAnim.GetMovementAnimation()
     {
-        animator.SetBool("Walking", true);
+        if(animator.GetBool("Walking") != true)
+        {
+            animator.SetBool("Walking", true);
+        } 
     }
 
     void IMoveAnim.StopMovementAnimation()

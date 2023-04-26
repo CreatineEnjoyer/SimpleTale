@@ -7,7 +7,7 @@ public class DetectingPlayer : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private GameObject player;
     [SerializeField] private StatsScriptable enemyStats;
-    
+
     private BoxCollider2D enemyDetectionCollider;
     public event Action DetectedPlayerEvent;
     public event Action DetectedNotPlayerEvent;

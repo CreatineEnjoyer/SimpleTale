@@ -37,13 +37,13 @@ public class PlayerJump : MonoBehaviour
 
     private void WallSliding()
     {
-        if (Physics2D.BoxCast(boxColl.bounds.center, boxColl.bounds.size, 0f, Vector2.left, .1f, jumpLayerMask))
+        if (Physics2D.BoxCast(boxColl.bounds.center, boxColl.bounds.size, 0f, Vector2.left, .1f, jumpLayerMask) && rb.velocity.y < 0f)
         {
-            rb.gravityScale = originalGravity / 3;
+            rb.gravityScale = originalGravity / 4;
         }
-        else if (Physics2D.BoxCast(boxColl.bounds.center, boxColl.bounds.size, 0f, Vector2.right, .1f, jumpLayerMask))
+        else if (Physics2D.BoxCast(boxColl.bounds.center, boxColl.bounds.size, 0f, Vector2.right, .1f, jumpLayerMask) && rb.velocity.y < 0f)
         {
-            rb.gravityScale = originalGravity / 3;
+            rb.gravityScale = originalGravity / 4;
         }
         else
         {

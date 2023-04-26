@@ -15,6 +15,7 @@ public class PlayerBasicAttack : MonoBehaviour
     private PlayerControlActions playerAction;
     private SpriteRenderer sprite;
     private IAttackAnim attackAnimation;
+    private Rigidbody2D rb;
 
 
     private void Start()
@@ -26,6 +27,7 @@ public class PlayerBasicAttack : MonoBehaviour
     {
         playerAction = new PlayerControlActions();
         sprite = this.GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void AttackDirection()
@@ -62,7 +64,16 @@ public class PlayerBasicAttack : MonoBehaviour
             foreach(Collider2D enemy in enemyInRange)
             {
                 if(enemy.GetType() == typeof(CapsuleCollider2D))
-                    enemy.gameObject.GetComponent<ITakeDamage>().TakeDamage(strength); 
+                {
+                    enemy.gameObject.GetComponent<ITakeDamage>().TakeDamage(strength);
+
+                    if(playerAction.Player.Attack.ReadValue<Vector2>().x > 0f)
+                        rb.AddForce(Vector2.left * 20, ForceMode2D.Force);
+                           
+                    else if(playerAction.Player.Attack.ReadValue<Vector2>().x < 0f)
+                        rb.AddForce(Vector2.right * 20, ForceMode2D.Force); 
+                }
+                    
             }
         }
     }

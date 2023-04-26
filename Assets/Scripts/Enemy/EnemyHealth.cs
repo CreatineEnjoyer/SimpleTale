@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, ITakeDamage
 {
-    [SerializeField]
-    private StatsScriptable enemyStats;
+    [SerializeField] private StatsScriptable enemyStats;
 
     public event Action DeathEvent;
     private int health;
