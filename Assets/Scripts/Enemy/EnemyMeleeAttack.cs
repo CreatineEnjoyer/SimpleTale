@@ -66,12 +66,14 @@ public class EnemyMeleeAttack : MonoBehaviour
             AttackDirection();
             StartCoroutine(AttackCooldown());
 
-            Collider2D[] playerInRange = Physics2D.OverlapCircleAll(attackPoint.position, range, playerLayer);
-            foreach (Collider2D collider in playerInRange)
+            Collider2D playerInRange = Physics2D.OverlapCircle(attackPoint.position, range, playerLayer);
+            if(playerInRange != null)
             {
                 attackAnimation.BasicAttackAnim();
-                collider.gameObject.GetComponent<ITakeDamage>().TakeDamage(strength);
-            }   
+                playerInRange.GetComponent<ITakeDamage>().TakeDamage(strength);
+            }
+            else
+                attackAnimation.ResetAttackAnim();
         }
     }
 

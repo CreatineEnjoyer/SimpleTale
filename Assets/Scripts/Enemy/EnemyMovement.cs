@@ -44,7 +44,10 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator MoveTowardsPlayer()
     {
-        movementAnimation.GetMovementAnimation();
+        if(player.activeSelf)
+            movementAnimation.GetMovementAnimation();
+        else
+            movementAnimation.StopMovementAnimation();
         while (distanceToPlayer >= enemyStats.AttackRange && distanceToPlayer <= enemyStats.DetectionRange)
         {
             Vector2 destination = Vector2.MoveTowards(transform.position, player.transform.position, enemyStats.MovementSpeed * Time.deltaTime);

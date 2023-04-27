@@ -8,4 +8,9 @@ public class CharacterAttackAnim : MonoBehaviour, IAttackAnim
     {
         animator.SetTrigger("Attacking");
     }
+
+    void IAttackAnim.ResetAttackAnim()
+    {
+        animator.ResetTrigger("Attacking");
+    }
 }
