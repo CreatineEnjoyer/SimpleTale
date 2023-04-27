@@ -89,9 +89,9 @@ public class EnemyMeleeAttack : MonoBehaviour
         attackPoint.localPosition = flipPosition;
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.green;
-    //    Gizmos.DrawWireSphere(attackPoint.position, range);
-    //}
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(attackPoint.position, range);
+    }
 }
