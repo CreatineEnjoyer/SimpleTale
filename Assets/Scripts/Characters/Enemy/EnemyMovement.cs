@@ -10,7 +10,8 @@ public class EnemyMovement : MonoBehaviour
 
     private IMoveAnim movementAnimation;
     private DetectingPlayer detectingDistanceToPlayer;
-    
+    private SpriteRenderer sprite;
+
     private float distanceToPlayer = 100f;
     private int positionPatrolNumber;
     public bool canMove;
@@ -20,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
         canMove = true;
         movementAnimation = GetComponent<IMoveAnim>();
         detectingDistanceToPlayer = GetComponent<DetectingPlayer>();
+        sprite = GetComponent<SpriteRenderer>();
         detectingDistanceToPlayer.DetectedPlayerEvent += StartMoving;
         detectingDistanceToPlayer.DetectedNotPlayerEvent += ResetDistance;
         StartCoroutine(PatrollingArea());
@@ -53,8 +55,17 @@ public class EnemyMovement : MonoBehaviour
             Vector2 destination = Vector2.MoveTowards(transform.position, player.transform.position, enemyStats.MovementSpeed * Time.deltaTime);
             destination.y = transform.position.y;
             transform.position = destination;
+            MovingDirection(player);
             yield return null;
         }
+    }
+
+    private void MovingDirection(GameObject player)
+    {
+        if (player.transform.position.x - transform.position.x < 0)
+            sprite.flipX = true;
+        else if(player.transform.position.x - transform.position.x > 0)
+            sprite.flipX = false;
     }
 
     private void StartMoving()

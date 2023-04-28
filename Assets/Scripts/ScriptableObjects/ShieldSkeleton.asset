@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fa652b0f0093843a017fa260ba1469, type: 3}
   m_Name: ShieldSkeleton
   m_EditorClassIdentifier: 
-  detectionRange: 15
+  detectionRange: 10
   movementSpeed: 1
-  strength: 7
+  strength: 5
   attackRange: 2
   health: 75
