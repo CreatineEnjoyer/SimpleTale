@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     private DetectingPlayer detectingDistanceToPlayer;
     private SpriteRenderer sprite;
 
-    private float distanceToPlayer = 100f;
+    private float distanceToPlayer = 200f;
     private int positionPatrolNumber;
     public bool canMove;
 
@@ -46,11 +46,11 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator MoveTowardsPlayer()
     {
-        if(player.activeSelf)
+        if(player.activeSelf && canMove)
             movementAnimation.GetMovementAnimation();
         else
             movementAnimation.StopMovementAnimation();
-        while (distanceToPlayer >= enemyStats.AttackRange && distanceToPlayer <= enemyStats.DetectionRange)
+        while (distanceToPlayer >= enemyStats.AttackRange && distanceToPlayer <= enemyStats.DetectionRange && canMove)
         {
             Vector2 destination = Vector2.MoveTowards(transform.position, player.transform.position, enemyStats.MovementSpeed * Time.deltaTime);
             destination.y = transform.position.y;
@@ -86,7 +86,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     { 
-        if (collision.gameObject.layer == 3 && canMove)
+        if (collision.gameObject.layer == 3)
         {
             Invoke(nameof(WaitAfterMoving), 0.15f);
         }
@@ -101,7 +101,7 @@ public class EnemyMovement : MonoBehaviour
     private void ResetDistance()
     {
         movementAnimation.StopMovementAnimation();
-        distanceToPlayer = 100f;
+        distanceToPlayer = 200f;
         StopCoroutine(MoveTowardsPlayer());
     }
 

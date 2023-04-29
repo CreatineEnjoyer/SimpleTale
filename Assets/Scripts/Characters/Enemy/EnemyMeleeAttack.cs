@@ -13,8 +13,9 @@ public class EnemyMeleeAttack : MonoBehaviour
     private int strength;
     private float range;
     private bool canAttack = true;
-    private SpriteRenderer sprite;
+    //private SpriteRenderer sprite;
     private IAttackAnim attackAnimation;
+    private IDirection direction;
 
     private void Start()
     {
@@ -23,42 +24,43 @@ public class EnemyMeleeAttack : MonoBehaviour
         attackCollision = GetComponent<CircleCollider2D>();
         attackCollision.radius = range;
         attackAnimation = GetComponentInParent<IAttackAnim>();
+        direction = GetComponent<IDirection>();
     }
 
-    private void Awake()
-    {
-        sprite = GetComponentInParent<SpriteRenderer>();
-    }
+    //private void Awake()
+    //{
+    //    sprite = GetComponentInParent<SpriteRenderer>();
+    //}
 
     private void Update()
     {
         AttackAnimated();
     }
 
-    private void AttackDirection()
-    {
-        Vector3 flipPosition;
-        flipPosition = transform.localPosition;
+    //private void AttackDirection()
+    //{
+    //    Vector3 flipPosition;
+    //    flipPosition = transform.localPosition;
 
-        if (Distance())
-        {
-            sprite.flipX = false;
-            if (transform.localPosition.x < 0f)
-                FlippingPosition(transform, flipPosition);
-        }
-        else if (!Distance())
-        {
-            sprite.flipX = true;
-            if (transform.localPosition.x > 0f)
-                FlippingPosition(transform, flipPosition);
-        }
-    }
+    //    if (Distance())
+    //    {
+    //        sprite.flipX = false;
+    //        if (transform.localPosition.x < 0f)
+    //            FlippingPosition(transform, flipPosition);
+    //    }
+    //    else if (!Distance())
+    //    {
+    //        sprite.flipX = true;
+    //        if (transform.localPosition.x > 0f)
+    //            FlippingPosition(transform, flipPosition);
+    //    }
+    //}
 
-    private bool Distance()
-    {
-        if (player.transform.position.x - transform.parent.position.x > 0f) return true;
-        else return false;
-    }
+    //private bool Distance()
+    //{
+    //    if (player.transform.position.x - transform.parent.position.x > 0f) return true;
+    //    else return false;
+    //}
 
     private void AttackAnimated()
     {
@@ -66,7 +68,8 @@ public class EnemyMeleeAttack : MonoBehaviour
         {
             canAttack = false;
             StartCoroutine(AttackCooldown());
-            AttackDirection();
+            //AttackDirection();
+            direction.AttackDirection();
 
             Collider2D playerInRange = Physics2D.OverlapCircle(transform.position, range, playerLayer);
             if (playerInRange != null)
@@ -90,11 +93,11 @@ public class EnemyMeleeAttack : MonoBehaviour
         canAttack = true;
     }
 
-    private void FlippingPosition(Transform attackPoint, Vector3 flipPosition)
-    {
-        flipPosition.x *= -1;
-        attackPoint.localPosition = flipPosition;
-    }
+    //private void FlippingPosition(Transform attackPoint, Vector3 flipPosition)
+    //{
+    //    flipPosition.x *= -1;
+    //    attackPoint.localPosition = flipPosition;
+    //}
 
     private void OnDrawGizmos()
     {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5954511029813162119}
   - component: {fileID: 5954511029813162117}
   - component: {fileID: 5954511029813162116}
+  - component: {fileID: 5726658062059146578}
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
@@ -67,6 +68,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5726658062059146578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5954511029813162118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f58b9aaad43bf24fa6e6c6ff9635457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &5954511030774303248
 GameObject:
   m_ObjectHideFlags: 0

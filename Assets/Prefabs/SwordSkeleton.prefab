@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 726859807897704152}
   - component: {fileID: 726859807897704151}
   - component: {fileID: 726859807897704149}
+  - component: {fileID: 7469130893353155484}
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
@@ -67,6 +68,19 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &7469130893353155484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726859807897704153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f58b9aaad43bf24fa6e6c6ff9635457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &726859807996198202
 GameObject:
   m_ObjectHideFlags: 0
