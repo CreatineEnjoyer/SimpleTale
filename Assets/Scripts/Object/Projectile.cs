@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -27,7 +23,6 @@ public class Projectile : MonoBehaviour
 
         float projectileRotation = Mathf.Atan2(destination.y, destination.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, projectileRotation - 180);
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

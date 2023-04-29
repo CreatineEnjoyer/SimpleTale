@@ -58,9 +58,9 @@ public class EnemyDistanceAttack : MonoBehaviour
         canAttack = true;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.parent.position, new Vector2(rangeAttack * 2, 4f));
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireCube(transform.parent.position, new Vector2(rangeAttack * 2, 4f));
+    //}
 }

@@ -76,7 +76,6 @@ public class EnemyMovement : MonoBehaviour
             distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
             StopCoroutine(PatrollingArea());
             StartCoroutine(MoveTowardsPlayer());
-            Debug.Log(distanceToPlayer);
         }
     }
 

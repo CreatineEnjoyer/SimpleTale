@@ -13,7 +13,6 @@ public class EnemyMeleeAttack : MonoBehaviour
     private int strength;
     private float range;
     private bool canAttack = true;
-    //private SpriteRenderer sprite;
     private IAttackAnim attackAnimation;
     private IDirection direction;
 
@@ -27,40 +26,10 @@ public class EnemyMeleeAttack : MonoBehaviour
         direction = GetComponent<IDirection>();
     }
 
-    //private void Awake()
-    //{
-    //    sprite = GetComponentInParent<SpriteRenderer>();
-    //}
-
     private void Update()
     {
         AttackAnimated();
     }
-
-    //private void AttackDirection()
-    //{
-    //    Vector3 flipPosition;
-    //    flipPosition = transform.localPosition;
-
-    //    if (Distance())
-    //    {
-    //        sprite.flipX = false;
-    //        if (transform.localPosition.x < 0f)
-    //            FlippingPosition(transform, flipPosition);
-    //    }
-    //    else if (!Distance())
-    //    {
-    //        sprite.flipX = true;
-    //        if (transform.localPosition.x > 0f)
-    //            FlippingPosition(transform, flipPosition);
-    //    }
-    //}
-
-    //private bool Distance()
-    //{
-    //    if (player.transform.position.x - transform.parent.position.x > 0f) return true;
-    //    else return false;
-    //}
 
     private void AttackAnimated()
     {
@@ -68,7 +37,6 @@ public class EnemyMeleeAttack : MonoBehaviour
         {
             canAttack = false;
             StartCoroutine(AttackCooldown());
-            //AttackDirection();
             direction.AttackDirection();
 
             Collider2D playerInRange = Physics2D.OverlapCircle(transform.position, range, playerLayer);
@@ -93,16 +61,10 @@ public class EnemyMeleeAttack : MonoBehaviour
         canAttack = true;
     }
 
-    //private void FlippingPosition(Transform attackPoint, Vector3 flipPosition)
+    //private void OnDrawGizmos()
     //{
-    //    flipPosition.x *= -1;
-    //    attackPoint.localPosition = flipPosition;
+    //    Gizmos.color = Color.green;
+    //    if (attackCollision != null)
+    //        Gizmos.DrawWireSphere(transform.position, range);
     //}
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        if (attackCollision != null)
-            Gizmos.DrawWireSphere(transform.position, range);
-    }
 }
