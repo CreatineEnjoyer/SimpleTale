@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyAttackMoveBehaviour : StateMachineBehaviour
 {
     EnemyMovement enemyMoving;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        enemyMoving = FindObjectOfType<EnemyMovement>();
+        enemyMoving = animator.gameObject.GetComponent<EnemyMovement>();
         enemyMoving.canMove = false;
     }
 
@@ -22,6 +23,7 @@ public class EnemyAttackMoveBehaviour : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemyMoving.canMove = true;
+        enemyMoving.StartMoving();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

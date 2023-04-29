@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpearSkeleton
   m_EditorClassIdentifier: 
   detectionRange: 15
-  movementSpeed: 2
+  movementSpeed: 1.5
   strength: 15
   attackRange: 1.7
   health: 45

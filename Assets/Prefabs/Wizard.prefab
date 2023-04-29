@@ -282,6 +282,7 @@ MonoBehaviour:
   patrollingPoints:
   - {x: 15.44, y: 4.15, z: 0}
   - {x: 22.33, y: 4.15, z: 0}
+  verticalDetection: 3.2
   canMove: 1
 --- !u!114 &4141603387955465402
 MonoBehaviour:

@@ -36,7 +36,7 @@ public class EnemyDistanceAttack : MonoBehaviour
             StartCoroutine(AttackCooldown());
             direction.AttackDirection();
 
-            Collider2D playerInRange = Physics2D.OverlapCapsule(transform.parent.position, new Vector2( rangeAttack, 4f), CapsuleDirection2D.Horizontal, 0f, playerLayer);
+            Collider2D playerInRange = Physics2D.OverlapCapsule(transform.parent.position, new Vector2( rangeAttack * 2, 4f), CapsuleDirection2D.Horizontal, 0f, playerLayer);
             if (playerInRange != null)
             {
                 attackAnimation.BasicAttackAnim();
@@ -61,6 +61,6 @@ public class EnemyDistanceAttack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.parent.position, new Vector2(rangeAttack, 4f));
+        Gizmos.DrawWireCube(transform.parent.position, new Vector2(rangeAttack * 2, 4f));
     }
 }

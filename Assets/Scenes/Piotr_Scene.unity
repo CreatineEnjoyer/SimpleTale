@@ -5028,10 +5028,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Archer
       objectReference: {fileID: 0}
+    - target: {fileID: 6318274560247186117, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318274560247186121, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318274560247186124, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318274560247186125, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6318274560247186126, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 209940794}
+    - target: {fileID: 6318274560247186126, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6318274560247186126, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
       propertyPath: patrollingPoints.Array.data[0].x
       value: 4.99
@@ -5048,13 +5068,21 @@ PrefabInstance:
       propertyPath: patrollingPoints.Array.data[1].y
       value: 2.38
       objectReference: {fileID: 0}
+    - target: {fileID: 6318274560247186130, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318274560247186131, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6318274560247186134, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6318274560247186134, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.99
+      value: 4.87
       objectReference: {fileID: 0}
     - target: {fileID: 6318274560247186134, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5104,6 +5132,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 209940794}
+    - target: {fileID: 6318274560679782694, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
 --- !u!1001 &1917228155310855895
@@ -5173,6 +5205,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 209940794}
+    - target: {fileID: 8099474823306558254, guid: c802540f5d67bbd47a9f62252036fec1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c802540f5d67bbd47a9f62252036fec1, type: 3}
 --- !u!1001 &5308377784731159743

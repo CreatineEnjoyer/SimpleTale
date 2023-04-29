@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] private StatsScriptable enemyStats;
     [SerializeField] private Vector3[] patrollingPoints;
+    [SerializeField] private float verticalDetection;
 
     private IMoveAnim movementAnimation;
     private DetectingPlayer detectingDistanceToPlayer;
@@ -68,11 +69,15 @@ public class EnemyMovement : MonoBehaviour
             sprite.flipX = false;
     }
 
-    private void StartMoving()
+    public void StartMoving()
     {
-        distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        StopCoroutine(PatrollingArea());
-        StartCoroutine(MoveTowardsPlayer());
+        if(player.transform.position.y - transform.position.y < verticalDetection && player.transform.position.y - transform.position.y > (verticalDetection * -1))
+        {
+            distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+            StopCoroutine(PatrollingArea());
+            StartCoroutine(MoveTowardsPlayer());
+            Debug.Log(distanceToPlayer);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

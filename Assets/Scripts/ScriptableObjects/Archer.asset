@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fa652b0f0093843a017fa260ba1469, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  detectionRange: 30
+  detectionRange: 50
   movementSpeed: 1
   strength: 10
   attackRange: 10
