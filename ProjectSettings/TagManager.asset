@@ -15,7 +15,7 @@ TagManager:
   - Terrain
   - Enemy
   - Trap
-  - 
+  - Secrets
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Secrets
+    uniqueID: 4258825279
     locked: 0
