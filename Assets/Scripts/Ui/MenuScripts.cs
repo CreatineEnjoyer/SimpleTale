@@ -36,11 +36,11 @@ public class MenuScripts : MonoBehaviour
         OptionsPanel.SetActive(isActive);
     }
 
-    /*
+    
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
-    */
+    
 
 }
