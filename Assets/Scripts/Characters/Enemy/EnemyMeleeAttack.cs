@@ -40,12 +40,15 @@ public class EnemyMeleeAttack : MonoBehaviour
             direction.AttackDirection();
 
             Collider2D playerInRange = Physics2D.OverlapCircle(transform.position, range, playerLayer);
-            if (playerInRange != null)
+            if (attackAnimation != null)
             {
-                attackAnimation.BasicAttackAnim();
+                if (playerInRange != null)
+                {
+                    attackAnimation.BasicAttackAnim();
+                }
+                else
+                    attackAnimation.ResetAttackAnim();
             }
-            else
-                attackAnimation.ResetAttackAnim();
         }
     }
 
