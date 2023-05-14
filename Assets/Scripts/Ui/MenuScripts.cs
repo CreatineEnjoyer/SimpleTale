@@ -42,5 +42,9 @@ public class MenuScripts : MonoBehaviour
         QualitySettings.SetQualityLevel(qualityIndex);
     }
     
+    public void FullscreenToggle()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
 
 }
