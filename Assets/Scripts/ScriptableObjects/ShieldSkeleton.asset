@@ -16,4 +16,4 @@ MonoBehaviour:
   movementSpeed: 1
   strength: 5
   attackRange: 2
-  health: 75
+  health: 120
