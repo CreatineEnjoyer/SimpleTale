@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   detectionRange: 20
-  movementSpeed: 1
+  movementSpeed: 2
   strength: 5
   attackRange: 2
-  health: 80
+  health: 700
