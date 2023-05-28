@@ -47,4 +47,34 @@ public class MenuScripts : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
     }
 
+    public void WindowSize(int windowSizeIndex)
+    {
+        switch (windowSizeIndex)
+        {
+            case 0:
+                Screen.SetResolution(1920, 1080, true);
+                break;
+
+            case 1:
+                Screen.SetResolution(640, 360, true);
+
+                break;
+
+            case 2:
+                Screen.SetResolution(1280, 768, true);
+
+                break;
+
+            case 3:
+                Screen.SetResolution(1360, 768, true);
+
+                break;
+
+            case 4:
+                Screen.SetResolution(1600, 900, true);
+
+                break;
+
+        }
+    }
 }
