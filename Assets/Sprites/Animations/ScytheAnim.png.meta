@@ -103,7 +103,94 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ScytheAnim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 160
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -19}
+        - {x: 80, y: 0}
+        - {x: 0, y: 19}
+        - {x: -80, y: 0}
+      physicsShape:
+      - - {x: 0, y: -19}
+        - {x: 80, y: 0}
+        - {x: 0, y: 19}
+        - {x: -80, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: af39914a4ab8d5343b9dcc391d353bb5
+      internalID: 525666712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScytheAnim_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 160
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -19}
+        - {x: 80, y: 0}
+        - {x: 0, y: 19}
+        - {x: -80, y: 0}
+      physicsShape:
+      - - {x: 0, y: -19}
+        - {x: 80, y: 0}
+        - {x: 0, y: 19}
+        - {x: -80, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef67be355b4a9af45afbe73f347cb458
+      internalID: 1911551145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScytheAnim_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 160
+        height: 38
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -19}
+        - {x: 80, y: 0}
+        - {x: 0, y: 19}
+        - {x: -80, y: 0}
+      physicsShape:
+      - - {x: 0, y: -19}
+        - {x: 80, y: 0}
+        - {x: 0, y: 19}
+        - {x: -80, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7684449a4557d364497dfd1a17585c83
+      internalID: -1088782022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +201,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ScytheAnim_0: 525666712
+      ScytheAnim_1: 1911551145
+      ScytheAnim_2: -1088782022
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
