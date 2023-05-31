@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinScript : MonoBehaviour
+public class PotionScript : MonoBehaviour
 {
-
     [SerializeField]
     private float minLaunchForce = 3f;
     [SerializeField]
@@ -16,8 +15,7 @@ public class CoinScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Vector2 launchCoinDirection = Random.insideUnitCircle.normalized;
-        float launchCoinSpeed = Random.Range(minLaunchForce, maxLaunchForce);
-        rb.velocity = launchCoinDirection * launchCoinSpeed;
+        float launchPotionSpeed = Random.Range(minLaunchForce, maxLaunchForce);
+        rb.velocity = launchCoinDirection * launchPotionSpeed;
     }
-    
 }
