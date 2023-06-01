@@ -45,11 +45,11 @@ public class PlayerPickupPotions : MonoBehaviour
         if (potions > 0)
         {
             potions = potions - 1;
+
+            UpdatePotionsCount();
+
+            GetComponent<ITakeDamage>().TakeDamage(-25);
         }
-
-        UpdatePotionsCount();
-
-        GetComponent<ITakeDamage>().TakeDamage(-25);
     }
 
 
