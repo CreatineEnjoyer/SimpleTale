@@ -80,6 +80,15 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UsePotion"",
+                    ""type"": ""Button"",
+                    ""id"": ""9d94a569-69e8-44ef-b145-7056af87bafd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -201,6 +210,17 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Skills"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""195d2913-4070-47f7-be62-4e6ee2cdcf43"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePotion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -794,6 +814,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         m_Player_Skills = m_Player.FindAction("Skills", throwIfNotFound: true);
+        m_Player_UsePotion = m_Player.FindAction("UsePotion", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -873,6 +894,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_PauseMenu;
     private readonly InputAction m_Player_Skills;
+    private readonly InputAction m_Player_UsePotion;
     public struct PlayerActions
     {
         private @PlayerControlActions m_Wrapper;
@@ -883,6 +905,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputAction @Skills => m_Wrapper.m_Player_Skills;
+        public InputAction @UsePotion => m_Wrapper.m_Player_UsePotion;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -910,6 +933,9 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
             @Skills.started += instance.OnSkills;
             @Skills.performed += instance.OnSkills;
             @Skills.canceled += instance.OnSkills;
+            @UsePotion.started += instance.OnUsePotion;
+            @UsePotion.performed += instance.OnUsePotion;
+            @UsePotion.canceled += instance.OnUsePotion;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -932,6 +958,9 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
             @Skills.started -= instance.OnSkills;
             @Skills.performed -= instance.OnSkills;
             @Skills.canceled -= instance.OnSkills;
+            @UsePotion.started -= instance.OnUsePotion;
+            @UsePotion.performed -= instance.OnUsePotion;
+            @UsePotion.canceled -= instance.OnUsePotion;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1120,6 +1149,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
         void OnSkills(InputAction.CallbackContext context);
+        void OnUsePotion(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
