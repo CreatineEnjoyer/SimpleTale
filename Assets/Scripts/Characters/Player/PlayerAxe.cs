@@ -6,7 +6,6 @@ public class PlayerAxe : MonoBehaviour
 {
     [SerializeField] private int skillDamage;
     [SerializeField] private float skillAttackCooldown;
-    [SerializeField] private Transform attackPoint;
     private PlayerControlActions playerAction;
     private ISkillAnimator skillAnimator;
     private bool canUseAxe = true;
