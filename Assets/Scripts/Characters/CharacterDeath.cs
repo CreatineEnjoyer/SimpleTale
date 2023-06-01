@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class CharacterDeath : MonoBehaviour
 {
     private ITakeDamage health;
     [SerializeField] private Animator animator;
+    public event Action BossDeathEvent;
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class CharacterDeath : MonoBehaviour
     void Disappear()
     {
         gameObject.SetActive(false);
+        BossDeathEvent?.Invoke();
     }
 
     private void Die()

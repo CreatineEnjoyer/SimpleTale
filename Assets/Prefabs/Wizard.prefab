@@ -280,8 +280,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemyStats: {fileID: 11400000, guid: 5d290a018583a9d4384c69631b2c1eff, type: 2}
   patrollingPoints:
-  - {x: 15.44, y: 4.15, z: 0}
-  - {x: 22.33, y: 4.15, z: 0}
+  - {x: 95.37, y: 38.95, z: 0}
   verticalDetection: 3.2
   canMove: 1
 --- !u!114 &4141603387955465402

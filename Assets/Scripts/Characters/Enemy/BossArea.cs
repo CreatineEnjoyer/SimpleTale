@@ -3,12 +3,15 @@ using UnityEngine.Tilemaps;
 
 public class BossArea : MonoBehaviour
 {
+    private CharacterDeath bossDeath;
+
     private void Start()
     {
         GetComponent<TilemapRenderer>().enabled = false;
         GetComponent<TilemapCollider2D>().enabled = false;
+        bossDeath = GetComponentInChildren<CharacterDeath>();
+        bossDeath.BossDeathEvent += OpenPath;
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,5 +20,18 @@ public class BossArea : MonoBehaviour
             GetComponent<TilemapRenderer>().enabled = true;
             GetComponent<TilemapCollider2D>().enabled = true;
         }
+    }
+
+    void OpenPath()
+    {
+        if (GetComponent<TilemapRenderer>().enabled == true)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDisable()
+    {
+        bossDeath.BossDeathEvent -= OpenPath;
     }
 }
