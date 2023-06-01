@@ -27,10 +27,10 @@ public class PlayerAxe : MonoBehaviour
         } 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetType() == typeof(CapsuleCollider2D) && collision.gameObject.layer == 7)
-            collision.collider.GetComponent<ITakeDamage>().TakeDamage(skillDamage);
+            collision.GetComponent<ITakeDamage>().TakeDamage(skillDamage);
     }
 
     IEnumerator AxeCooldown()
