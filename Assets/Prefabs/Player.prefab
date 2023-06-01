@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 6591075485997191079}
   - component: {fileID: 6591075485997191072}
   - component: {fileID: 8287893478540532543}
+  - component: {fileID: 1234801861000890704}
+  - component: {fileID: 5257316600927789390}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -417,6 +419,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6591075485997191077}
+--- !u!114 &1234801861000890704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591075485997191132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34b728559b4281747976eadfd601f504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
+--- !u!114 &5257316600927789390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591075485997191132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f18366d5ae83745967d3574a1e7738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionIcon1: {fileID: 0}
+  potionIcon2: {fileID: 0}
+  potionIcon3: {fileID: 0}
+  potionIcon4: {fileID: 0}
+  potionIcon5: {fileID: 0}
+  potionIcon6: {fileID: 0}
+  potionIcon7: {fileID: 0}
+  potions: 0
+  usePotion:
+    m_Name: Use Potion
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d9c6b02e-ac09-474b-8471-2e9e17b601ec
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &6692413703399757832
 GameObject:
   m_ObjectHideFlags: 0
