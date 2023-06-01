@@ -15,5 +15,5 @@ MonoBehaviour:
   detectionRange: 50
   movementSpeed: 1
   strength: 10
-  attackRange: 200
+  attackRange: 50
   health: 40

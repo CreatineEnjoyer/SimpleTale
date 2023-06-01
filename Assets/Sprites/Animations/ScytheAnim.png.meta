@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -108,12 +108,12 @@ TextureImporter:
       name: ScytheAnim_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 53
         y: 0
-        width: 160
-        height: 38
+        width: 48
+        height: 32
       alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      pivot: {x: 0.562, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 0, y: -19}
@@ -140,9 +140,9 @@ TextureImporter:
         x: 160
         y: 0
         width: 160
-        height: 38
+        height: 32
       alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      pivot: {x: 0.5, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 0, y: -19}
@@ -166,12 +166,12 @@ TextureImporter:
       name: ScytheAnim_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 327
         y: 0
-        width: 160
-        height: 38
+        width: 149
+        height: 32
       alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      pivot: {x: 0.49, y: 0.42}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 0, y: -19}

@@ -9,6 +9,7 @@ public class DetectingPlayer : MonoBehaviour
     private BoxCollider2D enemyDetectionCollider;
     public event Action DetectedPlayerEvent;
     public event Action DetectedNotPlayerEvent;
+    private bool once = true;
 
     private void Start()
     {
@@ -16,19 +17,25 @@ public class DetectingPlayer : MonoBehaviour
         enemyDetectionCollider.size = new Vector2(enemyStats.DetectionRange, 4f);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 3 && once == true)
         {
-            DetectedPlayerEvent?.Invoke();
+            once = false;
+            Invoke(nameof(Wait), 0.015f);
         }
+    }
+    private void Wait()
+    {
+        DetectedPlayerEvent?.Invoke();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 3)
+        if (collision.gameObject.layer == 3 && once == false)
         {
             DetectedNotPlayerEvent?.Invoke();
+            once = true;
         }
     }
 

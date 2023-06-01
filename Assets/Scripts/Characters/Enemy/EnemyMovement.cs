@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private float distanceToPlayer = 200f;
     private int positionPatrolNumber;
     public bool canMove;
+    private bool canFollow = true;
 
     private void Start()
     {
@@ -47,17 +48,22 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator MoveTowardsPlayer()
     {
-        if(player.activeSelf && canMove)
-            movementAnimation.GetMovementAnimation();
-        else
-            movementAnimation.StopMovementAnimation();
-        while (distanceToPlayer >= enemyStats.AttackRange && distanceToPlayer <= enemyStats.DetectionRange && canMove)
+        if (canFollow)
         {
-            Vector2 destination = Vector2.MoveTowards(transform.position, player.transform.position, enemyStats.MovementSpeed * Time.deltaTime);
-            destination.y = transform.position.y;
-            transform.position = destination;
-            MovingDirection(player);
-            yield return null;
+            canFollow = false;
+            if (player.activeSelf && canMove)
+                movementAnimation.GetMovementAnimation();
+            else
+                movementAnimation.StopMovementAnimation();
+            while (distanceToPlayer >= enemyStats.AttackRange && distanceToPlayer <= enemyStats.DetectionRange && canMove)
+            {
+                Vector2 destination = Vector2.MoveTowards(transform.position, player.transform.position, enemyStats.MovementSpeed * Time.deltaTime);
+                destination.y = transform.position.y;
+                transform.position = destination;
+                MovingDirection(player);
+                yield return null;
+            }
+            canFollow = true;
         }
     }
 
