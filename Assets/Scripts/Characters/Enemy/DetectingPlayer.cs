@@ -14,7 +14,7 @@ public class DetectingPlayer : MonoBehaviour
     private void Start()
     {
         enemyDetectionCollider = GetComponent<BoxCollider2D>();
-        enemyDetectionCollider.size = new Vector2(enemyStats.DetectionRange, 4f);
+        enemyDetectionCollider.size = new Vector2(enemyStats.DetectionRange, 4.5f);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

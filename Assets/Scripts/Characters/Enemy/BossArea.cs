@@ -19,6 +19,7 @@ public class BossArea : MonoBehaviour
         {
             GetComponent<TilemapRenderer>().enabled = true;
             GetComponent<TilemapCollider2D>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
