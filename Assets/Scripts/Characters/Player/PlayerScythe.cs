@@ -7,13 +7,16 @@ public class PlayerScythe : MonoBehaviour
     [SerializeField] private int skillDamage;
     [SerializeField] private float skillAttackCooldown;
     [SerializeField] private GameObject scytheIcon;
+
     private PlayerControlActions playerAction;
     private ISkillAnimator skillAnimator;
-    private bool canUseScythe = true;
+    private bool canUseScythe = false;
     private Rigidbody2D rb;
 
     private void Awake()
     {
+        scytheIcon.SetActive(false);
+        WeaponPickup.WeaponPickupEvent += WeaponActivated;
         rb = GetComponentInParent<Rigidbody2D>();
         playerAction = new PlayerControlActions();
         skillAnimator = GetComponentInParent<ISkillAnimator>();
@@ -44,6 +47,15 @@ public class PlayerScythe : MonoBehaviour
         canUseScythe = true;
     }
 
+    private void WeaponActivated(WeaponPickup weapon)
+    {
+        if (weapon.name == "Scythe(Clone)")
+        {
+            scytheIcon.SetActive(true);
+            canUseScythe = true;
+        }
+    }
+
     private void OnEnable()
     {
         playerAction.Player.Enable();
@@ -52,6 +64,7 @@ public class PlayerScythe : MonoBehaviour
 
     private void OnDisable()
     {
+        WeaponPickup.WeaponPickupEvent -= WeaponActivated;
         playerAction.Player.Skills.started -= SkillAttack;
         playerAction.Player.Disable();
     }

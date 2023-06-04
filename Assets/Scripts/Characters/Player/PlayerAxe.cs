@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,12 +12,14 @@ public class PlayerAxe : MonoBehaviour
 
     private PlayerControlActions playerAction;
     private ISkillAnimator skillAnimator;
-    private bool canUseAxe = true;
+    private bool canUseAxe = false;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
-
+    
     private void Awake()
     {
+        axeIcon.SetActive(false);
+        WeaponPickup.WeaponPickupEvent += WeaponActivated;
         rb = GetComponentInParent<Rigidbody2D>();
         sprite = this.GetComponentInParent<SpriteRenderer>();
         playerAction = new PlayerControlActions();
@@ -75,12 +78,23 @@ public class PlayerAxe : MonoBehaviour
     {
         if (sprite.flipX == false)
         {
-            rb.AddForce(Vector2.left * 80, ForceMode2D.Force); 
+            rb.AddForce(Vector2.left * 80, ForceMode2D.Force);
+            rb.AddForce(Vector2.up * 20, ForceMode2D.Force);
         }
         else if (sprite.flipX == true)
         {
             rb.AddForce(Vector2.right * 80, ForceMode2D.Force);
+            rb.AddForce(Vector2.up * 20, ForceMode2D.Force);
         }      
+    }
+
+    private void WeaponActivated(WeaponPickup weapon)
+    {
+        if(weapon.name == "Axe(Clone)")
+        {
+            axeIcon.SetActive(true);
+            canUseAxe = true;
+        }
     }
 
     private void OnEnable()
@@ -91,6 +105,7 @@ public class PlayerAxe : MonoBehaviour
 
     private void OnDisable()
     {
+        WeaponPickup.WeaponPickupEvent -= WeaponActivated;
         playerAction.Player.Skills.started -= SkillAttack;
         playerAction.Player.Disable();
     }
