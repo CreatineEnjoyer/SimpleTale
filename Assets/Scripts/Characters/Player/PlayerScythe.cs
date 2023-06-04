@@ -6,12 +6,15 @@ public class PlayerScythe : MonoBehaviour
 {
     [SerializeField] private int skillDamage;
     [SerializeField] private float skillAttackCooldown;
+    [SerializeField] private GameObject scytheIcon;
     private PlayerControlActions playerAction;
     private ISkillAnimator skillAnimator;
     private bool canUseScythe = true;
+    private Rigidbody2D rb;
 
     private void Awake()
     {
+        rb = GetComponentInParent<Rigidbody2D>();
         playerAction = new PlayerControlActions();
         skillAnimator = GetComponentInParent<ISkillAnimator>();
     }
@@ -20,8 +23,10 @@ public class PlayerScythe : MonoBehaviour
     {
         if (Keyboard.current.digit1Key.wasPressedThisFrame && canUseScythe)
         {
+            scytheIcon.SetActive(false);
             canUseScythe = false;
             skillAnimator.SkillAttackAnimation(1);
+            rb.AddForce(Vector2.up * 40, ForceMode2D.Force);
             StartCoroutine(ScytheCooldown());
         }
     }
@@ -35,6 +40,7 @@ public class PlayerScythe : MonoBehaviour
     IEnumerator ScytheCooldown()
     {
         yield return new WaitForSeconds(skillAttackCooldown);
+        scytheIcon.SetActive(true);
         canUseScythe = true;
     }
 

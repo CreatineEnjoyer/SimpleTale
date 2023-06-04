@@ -7,13 +7,17 @@ public class PlayerAxe : MonoBehaviour
     [SerializeField] private int skillDamage;
     [SerializeField] private float skillAttackCooldown;
     [SerializeField] private Transform attackPoint;
+    [SerializeField] private GameObject axeIcon;
+
     private PlayerControlActions playerAction;
     private ISkillAnimator skillAnimator;
     private bool canUseAxe = true;
     private SpriteRenderer sprite;
+    private Rigidbody2D rb;
 
     private void Awake()
     {
+        rb = GetComponentInParent<Rigidbody2D>();
         sprite = this.GetComponentInParent<SpriteRenderer>();
         playerAction = new PlayerControlActions();
         skillAnimator = GetComponentInParent<ISkillAnimator>();
@@ -46,8 +50,10 @@ public class PlayerAxe : MonoBehaviour
         if (Keyboard.current.digit2Key.wasPressedThisFrame && canUseAxe)
         {
             AttackDirection();
+            axeIcon.SetActive(false);
             canUseAxe = false;
             skillAnimator.SkillAttackAnimation(2);
+            KnockbackEffect();
             StartCoroutine(AxeCooldown());
         } 
     }
@@ -61,7 +67,20 @@ public class PlayerAxe : MonoBehaviour
     IEnumerator AxeCooldown()
     {
         yield return new WaitForSeconds(skillAttackCooldown);
+        axeIcon.SetActive(true);
         canUseAxe = true;
+    }
+
+    private void KnockbackEffect()
+    {
+        if (sprite.flipX == false)
+        {
+            rb.AddForce(Vector2.left * 80, ForceMode2D.Force); 
+        }
+        else if (sprite.flipX == true)
+        {
+            rb.AddForce(Vector2.right * 80, ForceMode2D.Force);
+        }      
     }
 
     private void OnEnable()

@@ -10,6 +10,7 @@ public class PlayerBasicAttack : MonoBehaviour
     
     [SerializeField] private int strength;
     [SerializeField] private float range;
+    [SerializeField] private GameObject swordIcon;
 
     private bool canAttack = true;
     private PlayerControlActions playerAction;
@@ -56,7 +57,7 @@ public class PlayerBasicAttack : MonoBehaviour
         if (canAttack)
         {
             attackAnimation.BasicAttackAnim();
-
+            swordIcon.SetActive(false);
             canAttack = false;
             StartCoroutine(AttackCooldown());
 
@@ -87,6 +88,7 @@ public class PlayerBasicAttack : MonoBehaviour
     IEnumerator AttackCooldown()
     {
         yield return new WaitForSeconds(BasicAttackCooldown);
+        swordIcon.SetActive(true);
         canAttack = true;
     }
 
