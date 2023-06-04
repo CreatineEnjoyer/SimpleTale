@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openedChest: {fileID: 21300000, guid: 76387f0fc29e2874c9bd131bd1449107, type: 3}
-  chestItem: {fileID: 0}
+  chestItem: {fileID: 1286448574370430249, guid: 1ff87e58efcaae64594fb6a722b1f1db, type: 3}
 --- !u!70 &7822656750120638573
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
