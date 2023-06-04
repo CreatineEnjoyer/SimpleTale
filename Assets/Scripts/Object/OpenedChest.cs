@@ -5,7 +5,7 @@ public class OpenedChest : MonoBehaviour
     [SerializeField] Sprite openedChest;
     private ITakeDamage health;
 
-    [SerializeField] private GameObject chestItem;
+    [SerializeField] private GameObject[] chestItem;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class OpenedChest : MonoBehaviour
     private void OpenChest()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = openedChest;
-        Instantiate(chestItem, new Vector3(transform.position.x, (transform.position.y + 1), transform.position.z), Quaternion.identity);
+        foreach (GameObject prefab in chestItem)    Instantiate(prefab, new Vector3(transform.position.x, (transform.position.y + 1), transform.position.z), Quaternion.identity);
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
     }
 
