@@ -257,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 726859807996198193, guid: 485b70d9ee3de96428fdbad3f5694be9, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     - target: {fileID: 726859807996198202, guid: 485b70d9ee3de96428fdbad3f5694be9, type: 3}
       propertyPath: m_Name
       value: SwordSkeleton
@@ -269,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 7469130893353155484, guid: 485b70d9ee3de96428fdbad3f5694be9, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 485b70d9ee3de96428fdbad3f5694be9, type: 3}
 --- !u!1 &40101302
@@ -547,7 +547,7 @@ PrefabInstance:
     - target: {fileID: 1795691496363114417, guid: 1e1cb71cdc9debe4cbf019f6528f896f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     - target: {fileID: 1795691496363114426, guid: 1e1cb71cdc9debe4cbf019f6528f896f, type: 3}
       propertyPath: m_Name
       value: ShieldSkeleton
@@ -563,7 +563,7 @@ PrefabInstance:
     - target: {fileID: 6725672665830571395, guid: 1e1cb71cdc9debe4cbf019f6528f896f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e1cb71cdc9debe4cbf019f6528f896f, type: 3}
 --- !u!1 &257705770
@@ -986,6 +986,11 @@ PrefabInstance:
 --- !u!4 &381146855 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6591075485997191130, guid: 48be2f37ea2a8034d86f8ab85f7dd997, type: 3}
+  m_PrefabInstance: {fileID: 381146854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &381146856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6591075485997191132, guid: 48be2f37ea2a8034d86f8ab85f7dd997, type: 3}
   m_PrefabInstance: {fileID: 381146854}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &437068729
@@ -1514,11 +1519,11 @@ PrefabInstance:
     - target: {fileID: 4141603387955465405, guid: ac2ea6cbe41dafc40be57f1960819183, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     - target: {fileID: 6508760031829101561, guid: ac2ea6cbe41dafc40be57f1960819183, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac2ea6cbe41dafc40be57f1960819183, type: 3}
 --- !u!1 &529246159
@@ -7295,7 +7300,7 @@ PrefabInstance:
     - target: {fileID: 5726658062059146578, guid: 6359155eb4b867941be0db8e6a117b53, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     - target: {fileID: 5954511029813162117, guid: 6359155eb4b867941be0db8e6a117b53, type: 3}
       propertyPath: player
       value: 
@@ -7303,7 +7308,7 @@ PrefabInstance:
     - target: {fileID: 5954511030774303240, guid: 6359155eb4b867941be0db8e6a117b53, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     - target: {fileID: 5954511030774303248, guid: 6359155eb4b867941be0db8e6a117b53, type: 3}
       propertyPath: m_Name
       value: Dummy
@@ -8532,11 +8537,11 @@ PrefabInstance:
     - target: {fileID: 739730115005908414, guid: c802540f5d67bbd47a9f62252036fec1, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     - target: {fileID: 8099474822867144902, guid: c802540f5d67bbd47a9f62252036fec1, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     - target: {fileID: 8099474822867144909, guid: c802540f5d67bbd47a9f62252036fec1, type: 3}
       propertyPath: m_Name
       value: SpearSkeleton
@@ -9031,7 +9036,7 @@ PrefabInstance:
     - target: {fileID: 6318274560247186126, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     - target: {fileID: 6318274560247186126, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -9115,7 +9120,7 @@ PrefabInstance:
     - target: {fileID: 6318274560679782689, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 381146856}
     - target: {fileID: 6318274560679782694, guid: c71e2451a0ab98f4990ef0d095eabf50, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -9957,5 +9962,21 @@ PrefabInstance:
       propertyPath: chestItem
       value: 
       objectReference: {fileID: 1286448574370430249, guid: 1ff87e58efcaae64594fb6a722b1f1db, type: 3}
+    - target: {fileID: 7822656750120638572, guid: af4e3672b058005448920d5ab8fe75f3, type: 3}
+      propertyPath: chestItem.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822656750120638572, guid: af4e3672b058005448920d5ab8fe75f3, type: 3}
+      propertyPath: chestItem.Array.data[0]
+      value: 
+      objectReference: {fileID: 1286448574370430249, guid: 1ff87e58efcaae64594fb6a722b1f1db, type: 3}
+    - target: {fileID: 7822656750120638572, guid: af4e3672b058005448920d5ab8fe75f3, type: 3}
+      propertyPath: chestItem.Array.data[1]
+      value: 
+      objectReference: {fileID: 1286448574370430249, guid: 1ff87e58efcaae64594fb6a722b1f1db, type: 3}
+    - target: {fileID: 7822656750120638572, guid: af4e3672b058005448920d5ab8fe75f3, type: 3}
+      propertyPath: chestItem.Array.data[2]
+      value: 
+      objectReference: {fileID: 2688396483092462972, guid: 6f439e7beb5e1c54ab528c9b0750113e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4e3672b058005448920d5ab8fe75f3, type: 3}
