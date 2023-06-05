@@ -6,9 +6,8 @@ public class PlayerPickupMoney : MonoBehaviour
 {
     //[SerializeField] private MoneyScriptable playerMoney;
 
-    [SerializeField]
-    private int money;
-
+    [SerializeField] private int money;
+    [SerializeField] private AudioSource coinAudio;
 
     void Start()
     {
@@ -21,7 +20,8 @@ public class PlayerPickupMoney : MonoBehaviour
             {
                 money++;
                 Destroy(collision.gameObject);
-            }
+                coinAudio.Play();
+        }
     }
 
 
