@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 41883580}
   m_Layer: 0
-  m_Name: Philar
+  m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 50453511}
   m_Layer: 0
-  m_Name: Philar (11)
+  m_Name: Pillar (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,7 +587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 66531281}
   m_Layer: 0
-  m_Name: Philar (1)
+  m_Name: Pillar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37542,7 +37542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 738981967}
   m_Layer: 0
-  m_Name: Philar
+  m_Name: Pillar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38149,7 +38149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 815995195}
   m_Layer: 0
-  m_Name: Philar (2)
+  m_Name: Pillar (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41480,7 +41480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 910758695}
   m_Layer: 0
-  m_Name: Philar (1)
+  m_Name: Pillar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53464,7 +53464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1430341497}
   m_Layer: 0
-  m_Name: Philar (3)
+  m_Name: Pillar (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54820,7 +54820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1545406765}
   m_Layer: 0
-  m_Name: Philar (5)
+  m_Name: Pillar (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55264,7 +55264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1641851613}
   m_Layer: 0
-  m_Name: Philar (10)
+  m_Name: Pillar (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55407,7 +55407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1666756842}
   m_Layer: 0
-  m_Name: Philar (15)
+  m_Name: Pillar (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55609,7 +55609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1696814422}
   m_Layer: 0
-  m_Name: Philar (16)
+  m_Name: Pillar (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55643,7 +55643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1705733817}
   m_Layer: 0
-  m_Name: Philar (2)
+  m_Name: Pillar (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55677,7 +55677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1725995147}
   m_Layer: 0
-  m_Name: Philar (14)
+  m_Name: Pillar (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60222,7 +60222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912449606}
   m_Layer: 0
-  m_Name: Philar (6)
+  m_Name: Pillar (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60889,7 +60889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1990636909}
   m_Layer: 0
-  m_Name: Philar (4)
+  m_Name: Pillar (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61007,7 +61007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1998388193}
   m_Layer: 0
-  m_Name: Philar (8)
+  m_Name: Pillar (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61443,7 +61443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2046362894}
   m_Layer: 0
-  m_Name: Philar (9)
+  m_Name: Pillar (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62243,7 +62243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2109563534}
   m_Layer: 0
-  m_Name: Philar (7)
+  m_Name: Pillar (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62277,7 +62277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2121561219}
   m_Layer: 0
-  m_Name: Philar (12)
+  m_Name: Pillar (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62311,7 +62311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2126079223}
   m_Layer: 0
-  m_Name: Philar (13)
+  m_Name: Pillar (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
