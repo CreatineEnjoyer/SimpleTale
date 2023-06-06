@@ -49,6 +49,9 @@ TagManager:
   - name: Pillar
     uniqueID: 4757641
     locked: 0
+  - name: Shadow
+    uniqueID: 1198794297
+    locked: 0
   - name: Terrain
     uniqueID: 4172343401
     locked: 0
