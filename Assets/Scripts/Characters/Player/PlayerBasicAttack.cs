@@ -12,6 +12,8 @@ public class PlayerBasicAttack : MonoBehaviour
     [SerializeField] private float range;
     [SerializeField] private GameObject swordIcon;
 
+    [SerializeField] private AudioSource hitAudio;
+
     private bool canAttack = true;
     private PlayerControlActions playerAction;
     private SpriteRenderer sprite;
@@ -73,6 +75,8 @@ public class PlayerBasicAttack : MonoBehaviour
                            
                     else if(playerAction.Player.Attack.ReadValue<Vector2>().x < 0f)
                         rb.AddForce(Vector2.right * 20, ForceMode2D.Force); 
+
+                    hitAudio.Play();
                 }
                     
             }
