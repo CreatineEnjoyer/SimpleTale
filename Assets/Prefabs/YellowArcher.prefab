@@ -249,6 +249,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 71883cf7ad7217b478100c113a0d31c3, type: 2}
+  prefabs:
+  - {fileID: 1286448574370430249, guid: 1ff87e58efcaae64594fb6a722b1f1db, type: 3}
+  - {fileID: 1286448574370430249, guid: 1ff87e58efcaae64594fb6a722b1f1db, type: 3}
+  - {fileID: 1286448574370430249, guid: 1ff87e58efcaae64594fb6a722b1f1db, type: 3}
+  - {fileID: 1286448574370430249, guid: 1ff87e58efcaae64594fb6a722b1f1db, type: 3}
+  - {fileID: 1286448574370430249, guid: 1ff87e58efcaae64594fb6a722b1f1db, type: 3}
 --- !u!114 &5381834327779837102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5381834327779837096}
+  walkAudio: {fileID: 0}
 --- !u!114 &5381834327779837098
 MonoBehaviour:
   m_ObjectHideFlags: 0
