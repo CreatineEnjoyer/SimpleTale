@@ -21,6 +21,7 @@ public class MenuScripts : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
