@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class BossArea : MonoBehaviour
 {
+    [SerializeField] private GameObject shop;
     private CharacterDeath bossDeath;
 
     private void Start()
@@ -28,6 +29,7 @@ public class BossArea : MonoBehaviour
         if (GetComponent<TilemapRenderer>().enabled == true)
         {
             gameObject.SetActive(false);
+            shop.SetActive(false);
         }
     }
 

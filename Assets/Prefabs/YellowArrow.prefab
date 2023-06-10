@@ -147,4 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  stats: {fileID: 11400000, guid: 2ef9e5c90f32eab41bb237da4c744bd9, type: 2}
+  stats: {fileID: 11400000, guid: 71883cf7ad7217b478100c113a0d31c3, type: 2}
