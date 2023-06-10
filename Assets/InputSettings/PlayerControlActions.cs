@@ -89,6 +89,15 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Buy"",
+                    ""type"": ""Button"",
+                    ""id"": ""ac9a3b69-10a9-4d0a-af5a-9d52d76e817a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -221,6 +230,17 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UsePotion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""939d598d-99fc-425c-93b6-79f52a0da942"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Buy"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -815,6 +835,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         m_Player_Skills = m_Player.FindAction("Skills", throwIfNotFound: true);
         m_Player_UsePotion = m_Player.FindAction("UsePotion", throwIfNotFound: true);
+        m_Player_Buy = m_Player.FindAction("Buy", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -895,6 +916,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PauseMenu;
     private readonly InputAction m_Player_Skills;
     private readonly InputAction m_Player_UsePotion;
+    private readonly InputAction m_Player_Buy;
     public struct PlayerActions
     {
         private @PlayerControlActions m_Wrapper;
@@ -906,6 +928,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputAction @Skills => m_Wrapper.m_Player_Skills;
         public InputAction @UsePotion => m_Wrapper.m_Player_UsePotion;
+        public InputAction @Buy => m_Wrapper.m_Player_Buy;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -936,6 +959,9 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
             @UsePotion.started += instance.OnUsePotion;
             @UsePotion.performed += instance.OnUsePotion;
             @UsePotion.canceled += instance.OnUsePotion;
+            @Buy.started += instance.OnBuy;
+            @Buy.performed += instance.OnBuy;
+            @Buy.canceled += instance.OnBuy;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -961,6 +987,9 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
             @UsePotion.started -= instance.OnUsePotion;
             @UsePotion.performed -= instance.OnUsePotion;
             @UsePotion.canceled -= instance.OnUsePotion;
+            @Buy.started -= instance.OnBuy;
+            @Buy.performed -= instance.OnBuy;
+            @Buy.canceled -= instance.OnBuy;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1150,6 +1179,7 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
         void OnPauseMenu(InputAction.CallbackContext context);
         void OnSkills(InputAction.CallbackContext context);
         void OnUsePotion(InputAction.CallbackContext context);
+        void OnBuy(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
