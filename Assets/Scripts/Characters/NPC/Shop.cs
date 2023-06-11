@@ -21,7 +21,8 @@ public class Shop : MonoBehaviour
 
     private void OnDisable()
     {
-        player.GetComponent<PlayerBuy>().BuyItemEvent -= Buyitem;
+        if (player != null)
+            player.GetComponent<PlayerBuy>().BuyItemEvent -= Buyitem;
     }
 
     private void Buyitem()

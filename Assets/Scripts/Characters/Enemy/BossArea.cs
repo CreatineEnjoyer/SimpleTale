@@ -29,7 +29,8 @@ public class BossArea : MonoBehaviour
         if (GetComponent<TilemapRenderer>().enabled == true)
         {
             gameObject.SetActive(false);
-            shop.SetActive(false);
+            if(shop != null)
+                shop.SetActive(false);
         }
     }
 
