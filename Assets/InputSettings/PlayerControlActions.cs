@@ -224,6 +224,17 @@ public partial class @PlayerControlActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d5c6c536-ed43-43ae-917e-32b6e31ae7eb"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skills"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""195d2913-4070-47f7-be62-4e6ee2cdcf43"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",

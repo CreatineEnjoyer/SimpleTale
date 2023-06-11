@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerBasicAttack : MonoBehaviour
+public class PlayerBasicAttack : MonoBehaviour, IDirection
 {
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float BasicAttackCooldown;
@@ -19,11 +19,13 @@ public class PlayerBasicAttack : MonoBehaviour
     private SpriteRenderer sprite;
     private IAttackAnim attackAnimation;
     private Rigidbody2D rb;
+    private IDirection direction;
 
 
     private void Start()
     {
         attackAnimation = GetComponent<IAttackAnim>();
+        direction = GetComponent<IDirection>();
     }
 
     private void Awake()
@@ -33,7 +35,7 @@ public class PlayerBasicAttack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void AttackDirection()
+    void IDirection.AttackDirection()
     {
         Vector3 flipPosition;
         flipPosition = attackPoint.localPosition;
@@ -56,7 +58,7 @@ public class PlayerBasicAttack : MonoBehaviour
     {
         if (canAttack)
         {
-            AttackDirection();
+            direction.AttackDirection();
             attackAnimation.BasicAttackAnim();
             swordIcon.SetActive(false);
             canAttack = false;

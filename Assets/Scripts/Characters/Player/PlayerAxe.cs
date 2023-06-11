@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +6,6 @@ public class PlayerAxe : MonoBehaviour
 {
     [SerializeField] private int skillDamage;
     [SerializeField] private float skillAttackCooldown;
-    [SerializeField] private Transform attackPoint;
     [SerializeField] private GameObject axeIcon;
 
     private PlayerControlActions playerAction;
@@ -15,6 +13,7 @@ public class PlayerAxe : MonoBehaviour
     private bool canUseAxe = false;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
+    private IDirection direction;
     
     private void Awake()
     {
@@ -24,35 +23,14 @@ public class PlayerAxe : MonoBehaviour
         sprite = this.GetComponentInParent<SpriteRenderer>();
         playerAction = new PlayerControlActions();
         skillAnimator = GetComponentInParent<ISkillAnimator>();
-    }
-    private void AttackDirection()
-    {
-        Vector3 flipPosition;
-        flipPosition = attackPoint.localPosition;
-
-        if (sprite.flipX == false)
-        {
-            if (attackPoint.localPosition.x < 0f)
-                FlippingPosition(attackPoint, flipPosition);
-        }
-        else if (sprite.flipX == true)
-        {
-            if (attackPoint.localPosition.x > 0f)
-                FlippingPosition(attackPoint, flipPosition);
-        }
-    }
-
-    private void FlippingPosition(Transform attackPoint, Vector3 flipPosition)
-    {
-        flipPosition.x *= -1;
-        attackPoint.localPosition = flipPosition;
+        direction = GetComponent<IDirection>();
     }
 
     private void SkillAttack(InputAction.CallbackContext skill)
     {      
         if (Keyboard.current.digit2Key.wasPressedThisFrame && canUseAxe)
         {
-            AttackDirection();
+            direction.AttackDirection();
             axeIcon.SetActive(false);
             canUseAxe = false;
             skillAnimator.SkillAttackAnimation(2);
