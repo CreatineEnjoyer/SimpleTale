@@ -54,10 +54,9 @@ public class PlayerBasicAttack : MonoBehaviour
 
     private void BasicAttack(InputAction.CallbackContext obj)
     {
-        AttackDirection();
-
         if (canAttack)
         {
+            AttackDirection();
             attackAnimation.BasicAttackAnim();
             swordIcon.SetActive(false);
             canAttack = false;
