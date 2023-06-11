@@ -5,6 +5,7 @@ using UnityEngine;
 public class DetectingPlayer : MonoBehaviour
 {
     [SerializeField] private StatsScriptable enemyStats;
+    [SerializeField] private float verticalDetection = 4.5f;
 
     private BoxCollider2D enemyDetectionCollider;
     public event Action DetectedPlayerEvent;
@@ -14,7 +15,7 @@ public class DetectingPlayer : MonoBehaviour
     private void Start()
     {
         enemyDetectionCollider = GetComponent<BoxCollider2D>();
-        enemyDetectionCollider.size = new Vector2(enemyStats.DetectionRange, 4.5f);
+        enemyDetectionCollider.size = new Vector2(enemyStats.DetectionRange, verticalDetection);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
