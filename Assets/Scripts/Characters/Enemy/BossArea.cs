@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 public class BossArea : MonoBehaviour
 {
     [SerializeField] private GameObject shop;
+    [SerializeField] private GameObject nextShop;
     private CharacterDeath bossDeath;
 
     private void Start()
@@ -30,7 +31,12 @@ public class BossArea : MonoBehaviour
         {
             gameObject.SetActive(false);
             if(shop != null)
+            {
                 shop.SetActive(false);
+                if(nextShop != null)
+                    nextShop.SetActive(true);
+            }
+                
         }
     }
 

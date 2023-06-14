@@ -13,7 +13,7 @@ public class PlayerBuy : MonoBehaviour
         playerAction = new PlayerControlActions();
     }
 
-    private void BuyItem(InputAction.CallbackContext obj)
+    private void PlayerBuyItem(InputAction.CallbackContext obj)
     {
         if(wantBuy)
             BuyItemEvent?.Invoke();
@@ -35,12 +35,12 @@ public class PlayerBuy : MonoBehaviour
     private void OnEnable()
     {
         playerAction.Player.Enable();
-        playerAction.Player.Buy.started += BuyItem;
+        playerAction.Player.Buy.started += PlayerBuyItem;
     }
 
     private void OnDisable()
     {
-        playerAction.Player.Buy.started -= BuyItem;
+        playerAction.Player.Buy.started -= PlayerBuyItem;
         playerAction.Player.Disable();
     }
 }

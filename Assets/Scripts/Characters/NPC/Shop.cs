@@ -9,9 +9,9 @@ public class Shop : MonoBehaviour
     [SerializeField] private MoneyScriptable playerMoney;
     [SerializeField] private GameObject itemPrefab;
 
-    private void Awake()
+    private void OnEnable()
     {
-        player.GetComponent<PlayerBuy>().BuyItemEvent += Buyitem;
+        player.GetComponent<PlayerBuy>().BuyItemEvent += BuyItem;
     }
 
     private void Update()
@@ -22,10 +22,10 @@ public class Shop : MonoBehaviour
     private void OnDisable()
     {
         if (player != null)
-            player.GetComponent<PlayerBuy>().BuyItemEvent -= Buyitem;
+            player.GetComponent<PlayerBuy>().BuyItemEvent -= BuyItem;
     }
 
-    private void Buyitem()
+    private void BuyItem()
     {
         if(playerMoney.Money >= moneyAmount)
         {
