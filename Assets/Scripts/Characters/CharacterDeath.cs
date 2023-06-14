@@ -14,6 +14,7 @@ public class CharacterDeath : MonoBehaviour
     }
     void DeathAnimation()
     {
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         if(animator != null)
             animator.SetTrigger("Death");
     }

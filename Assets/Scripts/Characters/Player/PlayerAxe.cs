@@ -14,9 +14,11 @@ public class PlayerAxe : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
     private IDirection direction;
-    
+    private PlayerBasicAttack allowedAttack;
+
     private void Awake()
     {
+        allowedAttack = GetComponentInParent<PlayerBasicAttack>();
         axeIcon.SetActive(false);
         WeaponPickup.WeaponPickupEvent += WeaponActivated;
         rb = GetComponentInParent<Rigidbody2D>();
@@ -28,7 +30,7 @@ public class PlayerAxe : MonoBehaviour
 
     private void SkillAttack(InputAction.CallbackContext skill)
     {      
-        if (Keyboard.current.digit2Key.wasPressedThisFrame && canUseAxe)
+        if (Keyboard.current.digit2Key.wasPressedThisFrame && canUseAxe && allowedAttack.canAttack)
         {
             direction.AttackDirection();
             axeIcon.SetActive(false);

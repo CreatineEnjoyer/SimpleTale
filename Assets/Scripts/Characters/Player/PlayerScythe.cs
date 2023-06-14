@@ -12,9 +12,11 @@ public class PlayerScythe : MonoBehaviour
     private ISkillAnimator skillAnimator;
     private bool canUseScythe = false;
     private Rigidbody2D rb;
+    private PlayerBasicAttack allowedAttack;
 
     private void Awake()
     {
+        allowedAttack = GetComponentInParent<PlayerBasicAttack>();
         scytheIcon.SetActive(false);
         WeaponPickup.WeaponPickupEvent += WeaponActivated;
         rb = GetComponentInParent<Rigidbody2D>();
@@ -24,7 +26,7 @@ public class PlayerScythe : MonoBehaviour
 
     private void SkillAttack(InputAction.CallbackContext skill)
     {
-        if (Keyboard.current.digit1Key.wasPressedThisFrame && canUseScythe)
+        if (Keyboard.current.digit1Key.wasPressedThisFrame && canUseScythe && allowedAttack.canAttack)
         {
             scytheIcon.SetActive(false);
             canUseScythe = false;

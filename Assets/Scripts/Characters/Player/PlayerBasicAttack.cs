@@ -14,7 +14,7 @@ public class PlayerBasicAttack : MonoBehaviour, IDirection
 
     [SerializeField] private AudioSource hitAudio;
 
-    private bool canAttack = true;
+    public bool canAttack = true;
     private PlayerControlActions playerAction;
     private SpriteRenderer sprite;
     private IAttackAnim attackAnimation;
