@@ -1,5 +1,6 @@
 using DialogueEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class NPCDialogues: MonoBehaviour
 {
@@ -18,6 +19,24 @@ public class NPCDialogues: MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
             ConversationManager.Instance.EndConversation();
+        }
+    }
+
+    private void Update()
+    {
+        if (ConversationManager.Instance != null)
+        {
+             if (ConversationManager.Instance.IsConversationActive)
+             {
+                 if (Keyboard.current.upArrowKey.wasPressedThisFrame)
+                    ConversationManager.Instance.SelectPreviousOption();
+
+                 else if (Keyboard.current.downArrowKey.wasPressedThisFrame)
+                    ConversationManager.Instance.SelectNextOption();
+
+                 else if (Keyboard.current.fKey.wasPressedThisFrame)
+                    ConversationManager.Instance.PressSelectedOption();
+             }
         }
     }
 }
