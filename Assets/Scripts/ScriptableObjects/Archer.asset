@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRange: 50
   movementSpeed: 1
-  strength: 10
+  strength: 8
   attackRange: 50
   health: 40

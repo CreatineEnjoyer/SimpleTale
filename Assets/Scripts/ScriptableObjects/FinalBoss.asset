@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FinalBoss
   m_EditorClassIdentifier: 
   detectionRange: 50
-  movementSpeed: 5
+  movementSpeed: 6
   strength: 35
   attackRange: 1.9
-  health: 1500
+  health: 1700
