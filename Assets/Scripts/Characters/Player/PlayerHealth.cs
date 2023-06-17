@@ -9,6 +9,9 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
     [SerializeField] private Image contaminationProcess;
     [SerializeField] private int health;
 
+    [SerializeField]
+    private GameObject GameOverPanel;
+
     public event Action DeathEvent;
     private float temp = 0f;
 
@@ -50,6 +53,11 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
     {
         health -= strength;
         UpdateHealth();
-        if (health <= 0) DeathEvent?.Invoke();
+
+        if (health <= 0)
+        {
+            DeathEvent?.Invoke();
+            GameOverPanel.SetActive(true);
+        }
     }
 }
