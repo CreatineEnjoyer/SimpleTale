@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement = Vector2.zero;
     private Rigidbody2D rb;
     private IMoveAnim movementAnimation;
+    private PlayerBasicAttack allowedFlip;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        allowedFlip = GetComponent<PlayerBasicAttack>();
         rb = this.GetComponent<Rigidbody2D>();
         sprite = this.GetComponent<SpriteRenderer>();
         playerAction = new PlayerControlActions();
@@ -46,11 +48,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Looking(InputAction movement)
     {
-        if(movement.ReadValue<Vector2>().x < 0f)
+        if(movement.ReadValue<Vector2>().x < 0f && allowedFlip.canAttack)
         {
             sprite.flipX = true;
         }
-        else if(movement.ReadValue<Vector2>().x > 0f)
+        else if(movement.ReadValue<Vector2>().x > 0f && allowedFlip.canAttack)
         {
             sprite.flipX = false;
         }
