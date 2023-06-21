@@ -1,0 +1,22 @@
+Assety użyte w naszym projekcie
+
+Dialogue editor:
+https://assetstore.unity.com/packages/tools/utilities/dialogue-editor-168329
+
+GothicVania Cemetery:
+https://assetstore.unity.com/packages/2d/characters/gothicvania-cemetery-120509
+
+GothicVania Church:
+https://assetstore.unity.com/packages/2d/characters/gothicvania-church-pack-147117
+
+Pixel 2D Castle Tileset:
+https://assetstore.unity.com/packages/2d/textures-materials/tiles/pixel-2d-castle-tileset-135397#content
+
+Medieval King Pack 2:
+https://assetstore.unity.com/packages/2d/characters/medieval-king-pack-2-174863
+
+Evil Wizard:
+https://assetstore.unity.com/packages/2d/characters/evil-wizard-168007
+
+Hero nad Opponents Animation:
+https://assetstore.unity.com/packages/2d/characters/hero-nad-opponents-animation-140776
