@@ -8,6 +8,7 @@ public class EnemyDistanceAttack : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private AudioSource arrowSound;
 
     private float rangeAttack;
     private bool canAttack = true;
@@ -47,6 +48,7 @@ public class EnemyDistanceAttack : MonoBehaviour
 
     private void Shoot(GameObject projectilePrefab)
     {
+        arrowSound.Play();
         Instantiate(projectilePrefab, transform.position, Quaternion.identity);
     }
 
