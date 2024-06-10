@@ -1,7 +1,7 @@
 # SimpleTale
 
-# Sklad zespolu:
+# Team:
 #   -Piotr Drobina
 #   -Dominik Bindas
 
-# https://github.com/orgs/PwSGiVR-2023/projects/2
+# Backup project repository for https://github.com/orgs/PwSGiVR-2023/projects/2
